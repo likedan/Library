@@ -16,12 +16,16 @@
 
 @implementation ViewController
 
+@synthesize bookTable;
+@synthesize navigationBar;
+@synthesize loadingView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationBar.layer.shadowOffset = CGSizeMake(0, 2);
-    self.navigationBar.layer.shadowRadius = 1;
-    self.navigationBar.layer.shadowOpacity = 0.3;
+    navigationBar.layer.shadowOffset = CGSizeMake(0, 2);
+    navigationBar.layer.shadowRadius = 1;
+    navigationBar.layer.shadowOpacity = 0.3;
     
     bookList = [[NSMutableArray alloc] init];
     
@@ -45,7 +49,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;// self->bookList.count;
+    return self->bookList.count;
 }
 
 // request the booklist from the server
@@ -54,9 +58,8 @@
     [self.view bringSubviewToFront: self.loadingView];
     [self.view bringSubviewToFront: self.navigationBar];
     // loading view disappear
-    [UIView animateWithDuration:0.3 animations:^{
-        self.loadingView.alpha = 1;
-    }];
+    loadingView.alpha = 1;
+
     
     InternetConnection *connection = [[InternetConnection alloc] init:@"books" parameters:nil];
     connection.delegate = self;
@@ -66,21 +69,38 @@
 - (void)gotResultFromServer:(NSString *)suffix result:(id)result {
     
     // loading view disappear
-    [UIView animateWithDuration:0.3 animations:^{
-        self.loadingView.alpha = 0;
-    } completion:^(BOOL finished) {
-        [self.view sendSubviewToBack: self.loadingView];
-    }];
-    
+    [self.view sendSubviewToBack: self.loadingView];
     
     if ([suffix isEqual: @"books"]) {
-        NSLog(@"%@",result);
+        
+        bookList = [NSMutableArray arrayWithArray:(NSArray *)result];
+        
+        //save booklist as a dictionary
+        bookDict = [[NSMutableDictionary alloc] init];
+        for (int index = 0; index < bookList.count; index++) {
+            [bookDict setObject:bookList[index] forKey:[bookList[index] objectForKey:@"title"]];
+        }
+        // Store the data
+        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:bookDict] forKey:@"books"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:bookList] forKey:@"booklist"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [bookTable reloadData];
     }
     
 }
 
 - (void)errorFromServer:(NSString *)suffix error:(NSError *)error {
-    // error handling
+    
+    [self.view sendSubviewToBack: self.loadingView];
+
+    if ([suffix isEqual: @"books"]) {
+        //retrieve local data
+        
+        bookDict = [[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"books"]] mutableCopy];
+        bookList = [[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"booklist"]] mutableCopy];
+        [bookTable reloadData];
+
+    }
 }
 
 - (void)didReceiveMemoryWarning {

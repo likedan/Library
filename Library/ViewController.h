@@ -12,7 +12,7 @@
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, InternetConnectionDelegate>{
     
     NSMutableArray *bookList;
-
+    NSMutableDictionary *bookDict;
 }
 
 @property(strong) IBOutlet UITableView *bookTable;

@@ -57,9 +57,6 @@
     
     [self.view bringSubviewToFront: self.loadingView];
     [self.view bringSubviewToFront: self.navigationBar];
-    // loading view disappear
-    loadingView.alpha = 1;
-
     
     InternetConnection *connection = [[InternetConnection alloc] init:@"books" parameters:nil];
     connection.delegate = self;

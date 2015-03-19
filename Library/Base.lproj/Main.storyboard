@@ -42,38 +42,34 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="MRz-Vb-Eps" id="3Uy-dx-JyD">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAq-E8-9Er">
-                                                    <rect key="frame" x="197" y="10" width="154.5" height="216.5"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpS-Wk-nUN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="154.5" height="216.5"/>
-                                                        </view>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="JpS-Wk-nUN" secondAttribute="trailing" id="4kY-cB-8tt"/>
-                                                        <constraint firstItem="JpS-Wk-nUN" firstAttribute="leading" secondItem="BAq-E8-9Er" secondAttribute="leading" id="Zsa-OC-37x"/>
-                                                        <constraint firstAttribute="bottom" secondItem="JpS-Wk-nUN" secondAttribute="bottom" id="amh-Ve-fxQ"/>
-                                                        <constraint firstItem="JpS-Wk-nUN" firstAttribute="top" secondItem="BAq-E8-9Er" secondAttribute="top" id="fiQ-lI-Q8U"/>
-                                                    </constraints>
-                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSL-qR-ivw">
                                                     <rect key="frame" x="10" y="10" width="167.5" height="216.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dX5-4D-PFY">
                                                             <rect key="frame" x="0.0" y="0.0" width="167.5" height="216.5"/>
                                                             <subviews>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="The Death of the Salesman" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cd-Ym-fIn">
-                                                                    <rect key="frame" x="5" y="5" width="157.5" height="103.5"/>
-                                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="18"/>
-                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                </textView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="by Kedan Li" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="170-Z9-RxS">
+                                                                    <rect key="frame" x="5" y="138" width="157.5" height="72.5"/>
+                                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Death of the Salesman" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9q-p8-9dg">
+                                                                    <rect key="frame" x="5" y="5" width="157.5" height="133.5"/>
+                                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="3cd-Ym-fIn" firstAttribute="top" secondItem="dX5-4D-PFY" secondAttribute="top" constant="5" id="OAx-Vw-peh"/>
-                                                                <constraint firstAttribute="trailing" secondItem="3cd-Ym-fIn" secondAttribute="trailing" constant="5" id="e13-iG-uEA"/>
-                                                                <constraint firstItem="3cd-Ym-fIn" firstAttribute="leading" secondItem="dX5-4D-PFY" secondAttribute="leading" constant="5" id="gOK-Gh-2hO"/>
-                                                                <constraint firstAttribute="centerY" secondItem="3cd-Ym-fIn" secondAttribute="bottom" id="lZE-eI-f4j"/>
+                                                                <constraint firstItem="x9q-p8-9dg" firstAttribute="trailing" secondItem="170-Z9-RxS" secondAttribute="trailing" id="CSR-fi-4Eq"/>
+                                                                <constraint firstAttribute="trailing" secondItem="170-Z9-RxS" secondAttribute="trailing" constant="5" id="GK9-Tn-WQ1"/>
+                                                                <constraint firstItem="170-Z9-RxS" firstAttribute="leading" secondItem="dX5-4D-PFY" secondAttribute="leading" constant="5" id="Gde-rV-0Vu"/>
+                                                                <constraint firstAttribute="bottom" secondItem="170-Z9-RxS" secondAttribute="bottom" constant="5" id="Ho9-cm-K2H"/>
+                                                                <constraint firstItem="x9q-p8-9dg" firstAttribute="leading" secondItem="170-Z9-RxS" secondAttribute="leading" id="X5V-jp-wiy"/>
+                                                                <constraint firstItem="x9q-p8-9dg" firstAttribute="top" secondItem="dX5-4D-PFY" secondAttribute="top" constant="5" id="gB8-MD-kCg"/>
+                                                                <constraint firstAttribute="centerY" secondItem="170-Z9-RxS" secondAttribute="top" constant="-30" id="leE-QJ-Gbw"/>
+                                                                <constraint firstItem="170-Z9-RxS" firstAttribute="top" secondItem="x9q-p8-9dg" secondAttribute="bottom" id="p6t-Ff-d1B"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -85,16 +81,55 @@
                                                         <constraint firstAttribute="trailing" secondItem="dX5-4D-PFY" secondAttribute="trailing" id="kld-Jw-DkE"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZM-zE-ecm">
+                                                    <rect key="frame" x="177.5" y="10" width="179.5" height="216.5"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MKc-cw-f4F">
+                                                            <rect key="frame" x="0.0" y="0.0" width="167.5" height="216.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="by Kedan Li" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Xxk-5y-Vvu">
+                                                                    <rect key="frame" x="5" y="138" width="157.5" height="72.5"/>
+                                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The Death of the Salesman" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mup-5L-f9C">
+                                                                    <rect key="frame" x="5" y="5" width="157.5" height="133.5"/>
+                                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="24"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="Xxk-5y-Vvu" secondAttribute="bottom" constant="5" id="7wZ-Gf-q9s"/>
+                                                                <constraint firstItem="mup-5L-f9C" firstAttribute="trailing" secondItem="Xxk-5y-Vvu" secondAttribute="trailing" id="Cho-BB-Nh1"/>
+                                                                <constraint firstItem="mup-5L-f9C" firstAttribute="leading" secondItem="Xxk-5y-Vvu" secondAttribute="leading" id="H3K-1W-iKM"/>
+                                                                <constraint firstItem="Xxk-5y-Vvu" firstAttribute="top" secondItem="mup-5L-f9C" secondAttribute="bottom" id="Mgb-nu-KEC"/>
+                                                                <constraint firstAttribute="centerY" secondItem="Xxk-5y-Vvu" secondAttribute="top" constant="-30" id="Ym0-Ql-6bO"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Xxk-5y-Vvu" secondAttribute="trailing" constant="5" id="dSl-3D-umn"/>
+                                                                <constraint firstItem="Xxk-5y-Vvu" firstAttribute="leading" secondItem="MKc-cw-f4F" secondAttribute="leading" constant="5" id="e9i-MP-dI7"/>
+                                                                <constraint firstItem="mup-5L-f9C" firstAttribute="top" secondItem="MKc-cw-f4F" secondAttribute="top" constant="5" id="rtT-ts-aW4"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="MKc-cw-f4F" firstAttribute="leading" secondItem="TZM-zE-ecm" secondAttribute="leading" id="HAE-WY-hcf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="MKc-cw-f4F" secondAttribute="trailing" id="bvD-6A-ivo"/>
+                                                        <constraint firstAttribute="bottom" secondItem="MKc-cw-f4F" secondAttribute="bottom" id="fGC-9k-zFu"/>
+                                                        <constraint firstItem="MKc-cw-f4F" firstAttribute="top" secondItem="TZM-zE-ecm" secondAttribute="top" id="odS-PA-1Aa"/>
+                                                        <constraint firstAttribute="centerX" secondItem="MKc-cw-f4F" secondAttribute="centerX" id="wAt-t6-eNm"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="dSL-qR-ivw" firstAttribute="leading" secondItem="3Uy-dx-JyD" secondAttribute="leading" constant="10" id="36G-uD-EhC"/>
-                                                <constraint firstItem="dSL-qR-ivw" firstAttribute="bottom" secondItem="BAq-E8-9Er" secondAttribute="bottom" id="5GR-ha-an1"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TZM-zE-ecm" secondAttribute="trailing" constant="10" id="7DZ-8K-igA"/>
                                                 <constraint firstItem="dSL-qR-ivw" firstAttribute="top" secondItem="3Uy-dx-JyD" secondAttribute="top" constant="10" id="AV3-lO-Lk0"/>
-                                                <constraint firstItem="dSL-qR-ivw" firstAttribute="top" secondItem="BAq-E8-9Er" secondAttribute="top" id="GN3-DK-1yM"/>
+                                                <constraint firstItem="dSL-qR-ivw" firstAttribute="bottom" secondItem="TZM-zE-ecm" secondAttribute="bottom" id="VDt-RP-mek"/>
+                                                <constraint firstItem="dSL-qR-ivw" firstAttribute="top" secondItem="TZM-zE-ecm" secondAttribute="top" id="Wto-PA-hFc"/>
                                                 <constraint firstAttribute="bottom" secondItem="dSL-qR-ivw" secondAttribute="bottom" constant="10" id="eLh-Qp-qeL"/>
-                                                <constraint firstItem="BAq-E8-9Er" firstAttribute="leading" secondItem="dSL-qR-ivw" secondAttribute="trailing" constant="20" id="hO1-5U-2kg"/>
                                                 <constraint firstItem="dSL-qR-ivw" firstAttribute="trailing" secondItem="3Uy-dx-JyD" secondAttribute="centerXWithinMargins" constant="-10" id="oP0-jp-t5z"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="BAq-E8-9Er" secondAttribute="trailing" constant="15" id="oU8-DP-d6m"/>
+                                                <constraint firstAttribute="centerX" secondItem="TZM-zE-ecm" secondAttribute="leading" constant="10" id="psq-3D-jgk"/>
                                                 <constraint firstAttribute="centerX" secondItem="dSL-qR-ivw" secondAttribute="trailing" constant="10" id="x7f-xv-d2A"/>
                                             </constraints>
                                             <variation key="default">
@@ -104,10 +139,14 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="book1Author" destination="170-Z9-RxS" id="uXE-JN-DI9"/>
+                                            <outlet property="book1Name" destination="x9q-p8-9dg" id="WEv-VU-mXq"/>
                                             <outlet property="book1back" destination="dSL-qR-ivw" id="r5R-kO-3Dx"/>
                                             <outlet property="book1cover" destination="dX5-4D-PFY" id="pr8-Io-2hB"/>
-                                            <outlet property="book2back" destination="BAq-E8-9Er" id="EMy-ge-ERv"/>
-                                            <outlet property="book2cover" destination="JpS-Wk-nUN" id="lVE-ee-jag"/>
+                                            <outlet property="book2Author" destination="Xxk-5y-Vvu" id="TN0-qp-qst"/>
+                                            <outlet property="book2Name" destination="mup-5L-f9C" id="mzU-wz-BS3"/>
+                                            <outlet property="book2back" destination="TZM-zE-ecm" id="zY6-dX-Usd"/>
+                                            <outlet property="book2cover" destination="MKc-cw-f4F" id="nWL-yE-v2e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -152,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366.5" y="535.5"/>
+            <point key="canvasLocation" x="315.25" y="539.5"/>
         </scene>
     </scenes>
 </document>

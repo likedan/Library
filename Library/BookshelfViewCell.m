@@ -10,7 +10,6 @@
 
 @implementation BookshelfViewCell
 
-
 - (void) configureWithMessages:(NSDictionary *)view book2:(NSDictionary *)book2 {
 
 }

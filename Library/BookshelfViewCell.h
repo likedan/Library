@@ -10,13 +10,13 @@
 
 @interface BookshelfViewCell : UITableViewCell
 
-@property(strong) IBOutlet UITextView *book1Name;
-@property(strong) IBOutlet UITextView *book1Author;
+@property(strong) IBOutlet UILabel *book1Name;
+@property(strong) IBOutlet UILabel *book1Author;
 @property(strong) IBOutlet UIView *book1back;
 @property(strong) IBOutlet UIView *book1cover;
 
-@property(strong) IBOutlet UITextView *book2Name;
-@property(strong) IBOutlet UITextView *book2Author;
+@property(strong) IBOutlet UILabel *book2Name;
+@property(strong) IBOutlet UILabel *book2Author;
 @property(strong) IBOutlet UIView *book2back;
 @property(strong) IBOutlet UIView *book2cover;
 

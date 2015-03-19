@@ -41,9 +41,24 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shelfCell" rowHeight="237" id="MRz-Vb-Eps" customClass="BookshelfViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MRz-Vb-Eps" id="3Uy-dx-JyD">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="MRz-Vb-Eps" id="3Uy-dx-JyD">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAq-E8-9Er">
+                                                    <rect key="frame" x="197" y="10.5" width="154.5" height="216.5"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpS-Wk-nUN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="154.5" height="216.5"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="JpS-Wk-nUN" secondAttribute="trailing" id="4kY-cB-8tt"/>
+                                                        <constraint firstItem="JpS-Wk-nUN" firstAttribute="leading" secondItem="BAq-E8-9Er" secondAttribute="leading" id="Zsa-OC-37x"/>
+                                                        <constraint firstAttribute="bottom" secondItem="JpS-Wk-nUN" secondAttribute="bottom" id="amh-Ve-fxQ"/>
+                                                        <constraint firstItem="JpS-Wk-nUN" firstAttribute="top" secondItem="BAq-E8-9Er" secondAttribute="top" id="fiQ-lI-Q8U"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSL-qR-ivw">
                                                     <rect key="frame" x="10" y="10" width="167.5" height="216.5"/>
                                                     <subviews>
@@ -56,7 +71,6 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="3cd-Ym-fIn" firstAttribute="top" secondItem="dX5-4D-PFY" secondAttribute="top" constant="5" id="OAx-Vw-peh"/>
                                                                 <constraint firstAttribute="trailing" secondItem="3cd-Ym-fIn" secondAttribute="trailing" constant="5" id="e13-iG-uEA"/>
@@ -65,28 +79,12 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="centerX" secondItem="dX5-4D-PFY" secondAttribute="centerX" id="5cY-kW-zhq"/>
                                                         <constraint firstAttribute="bottom" secondItem="dX5-4D-PFY" secondAttribute="bottom" id="Q32-QL-AVF"/>
                                                         <constraint firstItem="dX5-4D-PFY" firstAttribute="top" secondItem="dSL-qR-ivw" secondAttribute="top" id="Wqh-va-2Ww"/>
                                                         <constraint firstItem="dX5-4D-PFY" firstAttribute="leading" secondItem="dSL-qR-ivw" secondAttribute="leading" id="cwv-S0-0vQ"/>
                                                         <constraint firstAttribute="trailing" secondItem="dX5-4D-PFY" secondAttribute="trailing" id="kld-Jw-DkE"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAq-E8-9Er">
-                                                    <rect key="frame" x="197" y="10" width="154.5" height="216.5"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpS-Wk-nUN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="154.5" height="216.5"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </view>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="JpS-Wk-nUN" secondAttribute="trailing" id="4kY-cB-8tt"/>
-                                                        <constraint firstItem="JpS-Wk-nUN" firstAttribute="leading" secondItem="BAq-E8-9Er" secondAttribute="leading" id="Zsa-OC-37x"/>
-                                                        <constraint firstAttribute="bottom" secondItem="JpS-Wk-nUN" secondAttribute="bottom" id="amh-Ve-fxQ"/>
-                                                        <constraint firstItem="JpS-Wk-nUN" firstAttribute="top" secondItem="BAq-E8-9Er" secondAttribute="top" id="fiQ-lI-Q8U"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -97,12 +95,17 @@
                                                 <constraint firstItem="dSL-qR-ivw" firstAttribute="top" secondItem="BAq-E8-9Er" secondAttribute="top" id="GN3-DK-1yM"/>
                                                 <constraint firstAttribute="bottom" secondItem="dSL-qR-ivw" secondAttribute="bottom" constant="10" id="eLh-Qp-qeL"/>
                                                 <constraint firstItem="BAq-E8-9Er" firstAttribute="leading" secondItem="dSL-qR-ivw" secondAttribute="trailing" constant="20" id="hO1-5U-2kg"/>
+                                                <constraint firstItem="dSL-qR-ivw" firstAttribute="trailing" secondItem="3Uy-dx-JyD" secondAttribute="centerXWithinMargins" constant="-10" id="oP0-jp-t5z"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BAq-E8-9Er" secondAttribute="trailing" constant="15" id="oU8-DP-d6m"/>
                                                 <constraint firstAttribute="centerX" secondItem="dSL-qR-ivw" secondAttribute="trailing" constant="10" id="x7f-xv-d2A"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="x7f-xv-d2A"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="accessoryView" destination="BAq-E8-9Er" id="P8U-ty-tS5"/>
                                             <outlet property="book1back" destination="dSL-qR-ivw" id="r5R-kO-3Dx"/>
                                             <outlet property="book1cover" destination="dX5-4D-PFY" id="pr8-Io-2hB"/>
                                             <outlet property="book2back" destination="BAq-E8-9Er" id="EMy-ge-ERv"/>
@@ -110,6 +113,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="eFx-0P-dEn"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="7OM-3I-tHb"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

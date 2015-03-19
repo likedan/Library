@@ -21,27 +21,34 @@
     
     bookList = [[NSMutableArray alloc] init];
     
-    
     self.bookTable.estimatedRowHeight = self.view.bounds.size.width / 1.4 ;
-    self.bookTable.rowHeight = UITableViewAutomaticDimension;
+    
+    InternetConnection *connection = [[InternetConnection alloc] init:@"books" parameters:nil];
+    connection.delegate = self;
+    [connection sendGetRequest];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BookshelfViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"shelfCell"];
-    NSMutableDictionary *message = self->bookList[indexPath.row];
+    
+    if(cell == nil) {
+        cell = [[BookshelfViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shelfCell"];
+    }
+    //[cell.contentView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+   // NSMutableDictionary *message = self->bookList[indexPath.row];
     return cell;
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self->bookList.count;
+    return 5;// self->bookList.count;
 }
 
-- (void)getBookList {
-    
-    
+- (void)gotResultFromServer:(NSString *)suffix result:(id)result {
+    NSLog(@"%@",result);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -28,6 +28,7 @@ id <InternetConnectionDelegate> delegate;
 @property(strong) NSString *suffix;
 @property(strong) NSDictionary *parameters;
 
+- (instancetype)init :(NSString*)suffix parameters:(NSDictionary*)parameters;
 - (void) sendGetRequest;
 - (void) sendPostRequest;
 

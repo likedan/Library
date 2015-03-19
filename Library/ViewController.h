@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InternetConnection.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, InternetConnectionDelegate>{
     
     NSMutableArray *bookList;
-    NSMutableDictionary *books;
 
 }
 

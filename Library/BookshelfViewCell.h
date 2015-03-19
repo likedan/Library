@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BookshelfViewCell : UITableViewCell{
-    
-}
+@interface BookshelfViewCell : UITableViewCell
 
 @property(strong) IBOutlet UITextView *book1Name;
 @property(strong) IBOutlet UITextView *book1Author;

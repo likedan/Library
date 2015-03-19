@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38880BD1E6E3D93C57FE9949 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5AE6D60FDDC962F7CE3905 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		42D04C0B1ABA66C200A22B28 /* BookshelfViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D04C0A1ABA66C200A22B28 /* BookshelfViewCell.m */; };
 		42FE5DC21ABA5C84005B6673 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5DC11ABA5C84005B6673 /* main.m */; };
 		42FE5DC51ABA5C84005B6673 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5DC41ABA5C84005B6673 /* AppDelegate.m */; };
 		42FE5DC81ABA5C84005B6673 /* Library.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5DC61ABA5C84005B6673 /* Library.xcdatamodeld */; };
@@ -30,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		3AEDED8738AA656D16535C38 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		42D04C091ABA66C200A22B28 /* BookshelfViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookshelfViewCell.h; sourceTree = "<group>"; };
+		42D04C0A1ABA66C200A22B28 /* BookshelfViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookshelfViewCell.m; sourceTree = "<group>"; };
 		42FE5DBC1ABA5C84005B6673 /* Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FE5DC01ABA5C84005B6673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42FE5DC11ABA5C84005B6673 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				42FE5DC41ABA5C84005B6673 /* AppDelegate.m */,
 				42FE5DC91ABA5C84005B6673 /* ViewController.h */,
 				42FE5DCA1ABA5C84005B6673 /* ViewController.m */,
+				42D04C091ABA66C200A22B28 /* BookshelfViewCell.h */,
+				42D04C0A1ABA66C200A22B28 /* BookshelfViewCell.m */,
 				42FE5DCC1ABA5C84005B6673 /* Main.storyboard */,
 				42FE5DCF1ABA5C84005B6673 /* Images.xcassets */,
 				42FE5DD11ABA5C84005B6673 /* LaunchScreen.xib */,
@@ -298,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D04C0B1ABA66C200A22B28 /* BookshelfViewCell.m in Sources */,
 				42FE5DC51ABA5C84005B6673 /* AppDelegate.m in Sources */,
 				42FE5DC21ABA5C84005B6673 /* main.m in Sources */,
 				42FE5DCB1ABA5C84005B6673 /* ViewController.m in Sources */,
@@ -428,7 +434,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				INFOPLIST_FILE = Library/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -443,7 +449,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				INFOPLIST_FILE = Library/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

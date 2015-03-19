@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
+    
+    NSMutableArray *bookList;
+    NSMutableDictionary *books;
+
+}
 
 @property(strong) IBOutlet UITableView *bookTable;
 

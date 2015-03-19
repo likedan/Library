@@ -34,9 +34,10 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"Error: %@", error);
+        [[self delegate] errorFromServer:self.suffix error:error];
     }];
 }
+
 
 - (void) sendPostRequest {
 
@@ -46,8 +47,11 @@
         [[self delegate] gotResultFromServer:self.suffix result:responseObject];
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        
+        [[self delegate] errorFromServer:self.suffix error:error];
+        
     }];
     
 }
+
 @end

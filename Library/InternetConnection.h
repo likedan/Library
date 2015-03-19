@@ -15,6 +15,9 @@
 
 - (void) gotResultFromServer: (NSString*)suffix result:(id)result;
 
+- (void) errorFromServer: (NSString*)suffix error:(NSError*)error;
+
+
 @end
 
 @interface InternetConnection : NSObject{

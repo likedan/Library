@@ -16,6 +16,8 @@
 }
 
 @property(strong) IBOutlet UITableView *bookTable;
+@property(strong) IBOutlet UIVisualEffectView *loadingView;
+@property(strong) IBOutlet UINavigationBar *navigationBar;
 
 @end
 

@@ -19,21 +19,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BN9-E8-dQ2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="BN9-E8-dQ2" secondAttribute="height" multiplier="150:32" id="lTW-nV-yZN"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.86022238756613756" green="0.78342073559940806" blue="0.55301577969921922" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="30"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="BOOKS" id="0db-cW-3nE"/>
-                                </items>
-                            </navigationBar>
+                            <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6p-pd-DYs">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DVQ-yI-Afi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="d70-DR-a2P">
+                                            <rect key="frame" x="177" y="284" width="37" height="37"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="237" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PZR-u6-XMs">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,7 +43,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAq-E8-9Er">
-                                                    <rect key="frame" x="197" y="10.5" width="154.5" height="216.5"/>
+                                                    <rect key="frame" x="197" y="10" width="154.5" height="216.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpS-Wk-nUN">
                                                             <rect key="frame" x="0.0" y="0.0" width="154.5" height="216.5"/>
@@ -118,17 +116,38 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="7OM-3I-tHb"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BN9-E8-dQ2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BN9-E8-dQ2" secondAttribute="height" multiplier="150:32" id="lTW-nV-yZN"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.86022238756613756" green="0.78342073559940806" blue="0.55301577969921922" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="BOOKS" id="0db-cW-3nE"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BN9-E8-dQ2" secondAttribute="trailing" id="5Oj-bn-3rL"/>
+                            <constraint firstItem="Q6p-pd-DYs" firstAttribute="top" secondItem="BN9-E8-dQ2" secondAttribute="bottom" id="BdI-C5-9eu"/>
+                            <constraint firstItem="Q6p-pd-DYs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="C3O-bF-80I"/>
                             <constraint firstItem="BN9-E8-dQ2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="OFr-V1-kgz"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Q6p-pd-DYs" secondAttribute="bottom" id="hsV-O1-q9S"/>
                             <constraint firstItem="BN9-E8-dQ2" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="kA2-vR-fkL"/>
+                            <constraint firstAttribute="trailing" secondItem="Q6p-pd-DYs" secondAttribute="trailing" id="vCJ-yr-oqQ"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bookTable" destination="PZR-u6-XMs" id="BjB-Gp-9Mn"/>
+                        <outlet property="loadingView" destination="Q6p-pd-DYs" id="zir-lm-FSf"/>
+                        <outlet property="navigationBar" destination="BN9-E8-dQ2" id="xVW-ld-qjD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

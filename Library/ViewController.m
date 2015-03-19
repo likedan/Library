@@ -19,14 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationBar.layer.shadowOffset = CGSizeMake(0, 2);
+    self.navigationBar.layer.shadowRadius = 1;
+    self.navigationBar.layer.shadowOpacity = 0.3;
+    
     bookList = [[NSMutableArray alloc] init];
     
     self.bookTable.estimatedRowHeight = self.view.bounds.size.width / 1.4 ;
-    
-    InternetConnection *connection = [[InternetConnection alloc] init:@"books" parameters:nil];
-    connection.delegate = self;
-    [connection sendGetRequest];
-    
+
+    [self requestBookList];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -47,8 +48,39 @@
     return 5;// self->bookList.count;
 }
 
+// request the booklist from the server
+- (void)requestBookList {
+    
+    [self.view bringSubviewToFront: self.loadingView];
+    [self.view bringSubviewToFront: self.navigationBar];
+    // loading view disappear
+    [UIView animateWithDuration:0.3 animations:^{
+        self.loadingView.alpha = 1;
+    }];
+    
+    InternetConnection *connection = [[InternetConnection alloc] init:@"books" parameters:nil];
+    connection.delegate = self;
+    [connection sendGetRequest];
+}
+
 - (void)gotResultFromServer:(NSString *)suffix result:(id)result {
-    NSLog(@"%@",result);
+    
+    // loading view disappear
+    [UIView animateWithDuration:0.3 animations:^{
+        self.loadingView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.view sendSubviewToBack: self.loadingView];
+    }];
+    
+    
+    if ([suffix isEqual: @"books"]) {
+        NSLog(@"%@",result);
+    }
+    
+}
+
+- (void)errorFromServer:(NSString *)suffix error:(NSError *)error {
+    // error handling
 }
 
 - (void)didReceiveMemoryWarning {

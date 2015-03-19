@@ -39,6 +39,11 @@
     return self->bookList.count;
 }
 
+- (void)getBookList {
+    
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

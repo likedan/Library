@@ -8,5 +8,4 @@ xcodeproj 'Library'
 
 use_frameworks!
 
-pod 'Alamofire', '~> 1.1'
-
+pod "AFNetworking", "~> 2.0"

@@ -48,8 +48,8 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework 'Alamofire.framework'
+  install_framework 'AFNetworking.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework 'Alamofire.framework'
+  install_framework 'AFNetworking.framework'
 fi

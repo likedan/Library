@@ -8,7 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BookshelfViewCell : UITableViewCell
+@protocol BookCellDelegate <NSObject>
+
+@required
+- (void) bookClicked: (NSString*)title cell:(UITableViewCell*)cell;
+
+@end
+
+@interface BookshelfViewCell : UITableViewCell{
+    
+    id <BookCellDelegate> delegate;
+    
+}
+
+@property id delegate;
+
 
 @property(strong) IBOutlet UILabel *book1Name;
 @property(strong) IBOutlet UILabel *book1Author;
@@ -21,6 +35,6 @@
 @property(strong) IBOutlet UIView *book2cover;
 
 
-- (void) configureWithMessages:(NSDictionary *)view book2:(NSDictionary *)book2 ;
+- (void) setupCell:(NSDictionary *)view book2:(NSDictionary *)book2 ;
 
 @end

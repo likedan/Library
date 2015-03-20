@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "InternetConnection.h"
+#import "BookshelfViewCell.h"
+#import "UIViewFunctions.h"
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, InternetConnectionDelegate>{
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, InternetConnectionDelegate, BookCellDelegate>{
     
     NSMutableArray *bookList;
     NSMutableDictionary *bookDict;
@@ -18,6 +20,7 @@
 @property(strong) IBOutlet UITableView *bookTable;
 @property(strong) IBOutlet UIVisualEffectView *loadingView;
 @property(strong) IBOutlet UINavigationBar *navigationBar;
+@property(strong) IBOutlet UIButton *plus;
 
 @end
 

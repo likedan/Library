@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "BookshelfViewCell.h"
 #import "BookDetailsViewController.h"
-
+#import "CustomSegue.h"
 @interface ViewController ()
 
 @end
@@ -123,18 +123,19 @@
     }
     
     // find the corresponding position
-    CGPoint origin = [cell.contentView convertPoint:cell.book1back.frame.origin toView:self.bookTable];
-    [cell.book1back removeFromSuperview];
+    CGPoint origin = [cell.contentView convertPoint:bookBack.frame.origin toView:self.bookTable];
     
-    UIView *back = [[UIView alloc] initWithFrame:CGRectMake(origin.x, origin.y, cell.book1back.frame.size.width, cell.book1back.frame.size.height)];
-    back.backgroundColor = cell.book1back.backgroundColor;
+    NSLog(@"%f",bookTable.contentOffset.y);
+    
+    UIView *back = [[UIView alloc] initWithFrame:CGRectMake(origin.x, origin.y, bookBack.frame.size.width, bookBack.frame.size.height)];
+    back.backgroundColor = bookBack.backgroundColor;
     [self.bookTable addSubview:back];
     back.layer.shadowOffset = CGSizeMake(0, 3);
     back.layer.shadowRadius = 2;
     back.layer.shadowOpacity = 0.5;
     
     //render the vew as image
-    UIImage *coverimg = [UIViewFunctions getImageFromView:cell.book1back];
+    UIImage *coverimg = [UIViewFunctions getImageFromView:bookBack];
     UIImageView *cover = [[UIImageView alloc] initWithImage:coverimg];
     [cover setFrame: back.bounds];
     [back addSubview:cover];
@@ -148,7 +149,7 @@
         
         //open the book cover animation
         [bookCover setFrame:CGRectMake(0, 0, bookTable.frame.size.width, bookTable.frame.size.height)];
-        [bookBack setFrame:CGRectMake(0, 0, bookTable.frame.size.width, bookTable.frame.size.height)];
+        [bookBack setFrame:CGRectMake(0, bookTable.contentOffset.y, bookTable.frame.size.width, bookTable.frame.size.height)];
         [bookCover setTransform: CGAffineTransformMake(0.1, 0.1, 0, 1, -bookCover.frame.size.width / 2, 0)];
         
     } completion:^(BOOL finished) {
@@ -159,6 +160,12 @@
             
         } completion:^(BOOL finished) {
             [bookCover removeFromSuperview];
+            
+            [UIView animateWithDuration:0.1 delay:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                bookBack.alpha = 0;
+            } completion:^(BOOL finished) {
+                [bookBack removeFromSuperview];
+            }];
             [self performSegueWithIdentifier:@"bookToDetails" sender:self];
         }];
     }];
@@ -176,6 +183,14 @@
 
 - (IBAction)dismissToMain:(UIStoryboardSegue *)segue {
     
+}
+
+- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier{
+    if([identifier isEqualToString: @"detailToMain"]){
+        UIStoryboardSegue *unwindSegue = [[CustomSegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
+        return unwindSegue;
+    }
+    return [super segueForUnwindingToViewController:toViewController fromViewController:fromViewController identifier:identifier];
 }
 
 - (void)didReceiveMemoryWarning {

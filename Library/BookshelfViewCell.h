@@ -11,6 +11,7 @@
 @protocol BookCellDelegate <NSObject>
 
 @required
+
 - (void) bookClicked: (NSString*)title cell:(UITableViewCell*)cell;
 
 @end
@@ -24,15 +25,15 @@
 @property id delegate;
 
 
-@property(strong) IBOutlet UILabel *book1Name;
-@property(strong) IBOutlet UILabel *book1Author;
-@property(strong) IBOutlet UIView *book1back;
-@property(strong) IBOutlet UIView *book1cover;
+@property(nonatomic, strong) IBOutlet UILabel *book1Name;
+@property(nonatomic, strong) IBOutlet UILabel *book1Author;
+@property(nonatomic, strong) IBOutlet UIView *book1back;
+@property(nonatomic, strong) IBOutlet UIView *book1cover;
 
-@property(strong) IBOutlet UILabel *book2Name;
-@property(strong) IBOutlet UILabel *book2Author;
-@property(strong) IBOutlet UIView *book2back;
-@property(strong) IBOutlet UIView *book2cover;
+@property(nonatomic, strong) IBOutlet UILabel *book2Name;
+@property(nonatomic, strong) IBOutlet UILabel *book2Author;
+@property(nonatomic, strong) IBOutlet UIView *book2back;
+@property(nonatomic, strong) IBOutlet UIView *book2cover;
 
 
 - (void) setupCell:(NSDictionary *)view book2:(NSDictionary *)book2 ;

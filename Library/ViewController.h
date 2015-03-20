@@ -17,10 +17,10 @@
     NSMutableDictionary *bookDict;
 }
 
-@property(strong) IBOutlet UITableView *bookTable;
-@property(strong) IBOutlet UIVisualEffectView *loadingView;
-@property(strong) IBOutlet UINavigationBar *navigationBar;
-@property(strong) IBOutlet UIButton *plus;
+@property(nonatomic, strong) IBOutlet UITableView *bookTable;
+@property(nonatomic, strong) IBOutlet UIVisualEffectView *loadingView;
+@property(nonatomic, strong) IBOutlet UINavigationBar *navigationBar;
+@property(nonatomic, strong) IBOutlet UIButton *plus;
 
 @end
 

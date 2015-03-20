@@ -8,13 +8,15 @@
 
 #import "ViewController.h"
 #import "BookshelfViewCell.h"
+#import "BookDetailsViewController.h"
 
 @interface ViewController ()
 
-
 @end
 
-@implementation ViewController
+@implementation ViewController{
+    NSString* chosenBook;
+}
 
 @synthesize bookTable;
 @synthesize navigationBar;
@@ -111,42 +113,40 @@
 
 - (void)bookClicked:(NSString *)title cell:(BookshelfViewCell *)cell{
     
-    CGPoint origin;
+    chosenBook = title;
+    UIView *bookBack;
     // the first book
     if ([title isEqualToString: cell.book1Name.text]) {
-        origin = [cell.contentView convertPoint:cell.book1back.frame.origin toView:self.bookTable]; //[self.bookTable convertPoint:cell.book1back.frame.origin fromView:cell.book1back];
-        NSLog(@"%f",origin.x);
-        [cell.book1back removeFromSuperview];
-        
-        UIView *back = [[UIView alloc] initWithFrame:CGRectMake(origin.x, origin.y, cell.book1back.frame.size.width, cell.book1back.frame.size.height)];
-        back.backgroundColor = cell.book1back.backgroundColor;
-        [self.bookTable addSubview:back];
-        back.layer.shadowOffset = CGSizeMake(0, 3);
-        back.layer.shadowRadius = 2;
-        back.layer.shadowOpacity = 0.5;
-        
-        
-        UIImage *coverimg = [UIViewFunctions getImageFromView:cell.book1back];
-        UIImageView *cover = [[UIImageView alloc] initWithImage:coverimg];
-        [cover setFrame: back.bounds];
-        [back addSubview:cover];
-        
-        [self openBookAnimation:cover bookBack:back];
-        
+        bookBack = cell.book1back;
     }else{
-        origin = [self.view convertPoint:cell.book2back.frame.origin fromView:cell.book2back];
-        [cell.book2back removeFromSuperview];
-        UIView *tempBook = [[UIView alloc] initWithFrame: CGRectMake(origin.x, origin.y, cell.book2back.frame.size.width, cell.book2back.frame.size.height)];
-        tempBook.backgroundColor = cell.book2back.backgroundColor;
-        [tempBook addSubview: cell.book2cover];
-        [self.bookTable addSubview:tempBook];
+        bookBack = cell.book2back;
     }
+    
+    // find the corresponding position
+    CGPoint origin = [cell.contentView convertPoint:cell.book1back.frame.origin toView:self.bookTable];
+    [cell.book1back removeFromSuperview];
+    
+    UIView *back = [[UIView alloc] initWithFrame:CGRectMake(origin.x, origin.y, cell.book1back.frame.size.width, cell.book1back.frame.size.height)];
+    back.backgroundColor = cell.book1back.backgroundColor;
+    [self.bookTable addSubview:back];
+    back.layer.shadowOffset = CGSizeMake(0, 3);
+    back.layer.shadowRadius = 2;
+    back.layer.shadowOpacity = 0.5;
+    
+    //render the vew as image
+    UIImage *coverimg = [UIViewFunctions getImageFromView:cell.book1back];
+    UIImageView *cover = [[UIImageView alloc] initWithImage:coverimg];
+    [cover setFrame: back.bounds];
+    [back addSubview:cover];
+    
+    [self openBookAnimation:cover bookBack:back];
 
 }
 
 - (void) openBookAnimation :(UIView*)bookCover bookBack:(UIView*)bookBack {
     [UIView animateWithDuration:0.5 animations:^{
         
+        //open the book cover animation
         [bookCover setFrame:CGRectMake(0, 0, bookTable.frame.size.width, bookTable.frame.size.height)];
         [bookBack setFrame:CGRectMake(0, 0, bookTable.frame.size.width, bookTable.frame.size.height)];
         [bookCover setTransform: CGAffineTransformMake(0.1, 0.1, 0, 1, -bookCover.frame.size.width / 2, 0)];
@@ -162,6 +162,20 @@
             [self performSegueWithIdentifier:@"bookToDetails" sender:self];
         }];
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"bookToDetails"]) {
+        
+        BookDetailsViewController *controller = segue.destinationViewController;
+        controller.bookInfo = [bookDict objectForKey: chosenBook];
+    }
+
+}
+
+- (IBAction)dismissToMain:(UIStoryboardSegue *)segue {
+    
 }
 
 - (void)didReceiveMemoryWarning {

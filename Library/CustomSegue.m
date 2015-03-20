@@ -8,31 +8,36 @@
 //
 
 #import "CustomSegue.h"
+#import "BookDetailsViewController.h"
+#import "ViewController.h"
 
 @implementation CustomSegue
 
 -(void)perform{
+    
+    
     // Assign the source and destination views to local variables.
     UIView *firstView = [self.sourceViewController view];
     UIView *secondView = [self.destinationViewController view];
     
-    // Get the screen width and height.
-    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
-    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    
-    [secondView setFrame: CGRectMake(0.0, screenHeight, screenWidth, screenHeight)];
-    // Access the app's key window and insert the destination view above the current (source) one.
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    [window insertSubview:secondView aboveSubview:firstView];
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        [firstView setFrame: CGRectOffset(firstView.frame, 0.0, -screenHeight)];
-        [secondView setFrame: CGRectOffset(secondView.frame, 0.0, -screenHeight)];
-    } completion:^(BOOL finished) {
-        [self.sourceViewController presentViewController:self.destinationViewController animated:false completion:^{
-            
+    //from main view to detail view
+    if ([self.destinationViewController isMemberOfClass: [BookDetailsViewController class]] && [self.sourceViewController isMemberOfClass: [ViewController class]]) {
+        ((BookDetailsViewController*)self.destinationViewController).returnButton.alpha = 0;
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            ((ViewController*)self.sourceViewController).plus.alpha = 0;
+        } completion:^(BOOL finished) {
+            // Access the app's key window and insert the destination view above the current (source) one.
+            UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+            [window insertSubview:secondView aboveSubview:firstView];
+            [self.sourceViewController presentViewController:self.destinationViewController animated:false completion:^{
+                [UIView animateWithDuration:0.5 animations:^{
+                    ((BookDetailsViewController*)self.destinationViewController).returnButton.alpha = 1;
+                } completion:^(BOOL finished) {
+                }];
+            }];
         }];
-    }];
+    }
     
 }
 

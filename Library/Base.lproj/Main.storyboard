@@ -217,10 +217,10 @@
             </objects>
             <point key="canvasLocation" x="314.5" y="539.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Details View Controller-->
         <scene sceneID="vhY-7A-vpO">
             <objects>
-                <viewController id="EeF-Ep-yFe" sceneMemberID="viewController">
+                <viewController id="EeF-Ep-yFe" customClass="BookDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4cv-Sm-FDA"/>
                         <viewControllerLayoutGuide type="bottom" id="ebF-zV-Djs"/>
@@ -229,7 +229,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXN-Cb-XIU">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXN-Cb-XIU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GXN-Cb-XIU" secondAttribute="height" multiplier="150:32" id="9fS-7A-0L5"/>
@@ -241,13 +241,132 @@
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="BOOKS" id="SDr-0X-4kx"/>
+                                    <navigationItem title="BOOK" id="SDr-0X-4kx"/>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnM-7i-NxR">
+                                <rect key="frame" x="26" y="35" width="30" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NOZ-sp-oPB"/>
+                                    <constraint firstAttribute="width" constant="30" id="xQX-1m-MaD"/>
+                                </constraints>
+                                <state key="normal" image="backArrow.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="8tH-A7-7f5" kind="unwind" identifier="detailToMain" unwindAction="dismissToMain:" id="FU5-VU-iNP"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-1e-Cbp" userLabel="Content View">
+                                <rect key="frame" x="20" y="100" width="335" height="547"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publisher: Apress" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCX-n1-hI8">
+                                        <rect key="frame" x="20" y="155" width="295" height="17"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags: ios,beginner" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gi5-HH-jzB">
+                                        <rect key="frame" x="20" y="187" width="295" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Zcl-Gy-lUb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Checked Out:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7j-7U-XKc">
+                                        <rect key="frame" x="20" y="222" width="173.5" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="GsO-OU-jgZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kedan Li @ June 15, 2017" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-iL-xYT">
+                                        <rect key="frame" x="20" y="257" width="295" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="qol-IO-fWT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Beginning iPhone Development" translatesAutoresizingMaskIntoConstraints="NO" id="3sl-oq-QVn">
+                                        <rect key="frame" x="20" y="20" width="295" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="ejK-Mm-ABY"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="by Jeff LaMarche and Dave Mark " textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="3PJ-gF-9vL">
+                                        <rect key="frame" x="117" y="95" width="207.5" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="9ND-TM-POL"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVa-Zn-Il9">
+                                        <rect key="frame" x="40" y="467" width="255" height="50"/>
+                                        <color key="backgroundColor" red="0.93282903439999998" green="0.84726893670000003" blue="0.58959451350000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="WAu-Gp-fel"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="30"/>
+                                        <state key="normal" title="Checkout">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NXF-iL-xYT" secondAttribute="trailing" constant="20" id="24A-BM-EWg"/>
+                                    <constraint firstItem="NXF-iL-xYT" firstAttribute="top" secondItem="F7j-7U-XKc" secondAttribute="bottom" constant="15" id="65K-p0-8LZ"/>
+                                    <constraint firstAttribute="centerX" secondItem="3PJ-gF-9vL" secondAttribute="leading" constant="50" id="B4o-c0-2pG"/>
+                                    <constraint firstAttribute="trailing" secondItem="3sl-oq-QVn" secondAttribute="trailing" constant="20" id="C9X-VX-yl3"/>
+                                    <constraint firstAttribute="trailing" secondItem="JVa-Zn-Il9" secondAttribute="trailing" constant="40" id="IfU-FW-gVd"/>
+                                    <constraint firstItem="3sl-oq-QVn" firstAttribute="leading" secondItem="zb9-1e-Cbp" secondAttribute="leading" constant="20" id="KAW-MN-737"/>
+                                    <constraint firstAttribute="trailing" secondItem="GCX-n1-hI8" secondAttribute="trailing" constant="20" id="L8L-nn-UlX"/>
+                                    <constraint firstItem="Gi5-HH-jzB" firstAttribute="leading" secondItem="zb9-1e-Cbp" secondAttribute="leading" constant="20" id="RKm-Px-B2c"/>
+                                    <constraint firstItem="3sl-oq-QVn" firstAttribute="top" secondItem="zb9-1e-Cbp" secondAttribute="top" constant="20" id="TsS-Jo-L49"/>
+                                    <constraint firstItem="F7j-7U-XKc" firstAttribute="top" secondItem="Gi5-HH-jzB" secondAttribute="bottom" constant="15" id="W85-mo-jIL"/>
+                                    <constraint firstItem="GCX-n1-hI8" firstAttribute="leading" secondItem="zb9-1e-Cbp" secondAttribute="leading" constant="20" id="WTs-O8-q6h"/>
+                                    <constraint firstAttribute="trailing" secondItem="3PJ-gF-9vL" secondAttribute="trailing" constant="10" id="clL-Aj-Ggf"/>
+                                    <constraint firstItem="NXF-iL-xYT" firstAttribute="leading" secondItem="zb9-1e-Cbp" secondAttribute="leading" constant="20" id="coz-VW-MBH"/>
+                                    <constraint firstItem="Gi5-HH-jzB" firstAttribute="top" secondItem="GCX-n1-hI8" secondAttribute="bottom" constant="15" id="fGV-4f-6d1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gi5-HH-jzB" secondAttribute="trailing" constant="20" id="iMl-sp-u7x"/>
+                                    <constraint firstItem="GCX-n1-hI8" firstAttribute="top" secondItem="3PJ-gF-9vL" secondAttribute="bottom" constant="15" id="nQW-51-zYW"/>
+                                    <constraint firstItem="3PJ-gF-9vL" firstAttribute="top" secondItem="3sl-oq-QVn" secondAttribute="bottom" id="pxO-Ey-jF1"/>
+                                    <constraint firstItem="JVa-Zn-Il9" firstAttribute="leading" secondItem="zb9-1e-Cbp" secondAttribute="leading" constant="40" id="t98-V7-WeA"/>
+                                    <constraint firstItem="JVa-Zn-Il9" firstAttribute="top" secondItem="NXF-iL-xYT" secondAttribute="bottom" constant="30" id="uAk-e5-52i"/>
+                                    <constraint firstItem="F7j-7U-XKc" firstAttribute="leading" secondItem="zb9-1e-Cbp" secondAttribute="leading" constant="20" id="xei-Oe-AFi"/>
+                                    <constraint firstAttribute="bottom" secondItem="JVa-Zn-Il9" secondAttribute="bottom" constant="30" id="zJF-Y7-zWk"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="uAk-e5-52i"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="GXN-Cb-XIU" firstAttribute="width" secondItem="GXN-Cb-XIU" secondAttribute="height" multiplier="150:32" id="7kD-oX-RNy"/>
+                            <constraint firstItem="GXN-Cb-XIU" firstAttribute="top" secondItem="Qn6-r9-SDl" secondAttribute="top" id="Hfc-9m-STb"/>
+                            <constraint firstItem="zb9-1e-Cbp" firstAttribute="leading" secondItem="Qn6-r9-SDl" secondAttribute="leading" constant="20" id="JNR-ff-VMH"/>
+                            <constraint firstAttribute="trailing" secondItem="zb9-1e-Cbp" secondAttribute="trailing" constant="20" id="JgS-L7-a9A"/>
+                            <constraint firstAttribute="trailing" secondItem="GXN-Cb-XIU" secondAttribute="trailing" id="O9I-eI-fsx"/>
+                            <constraint firstItem="cnM-7i-NxR" firstAttribute="bottom" secondItem="GXN-Cb-XIU" secondAttribute="bottom" constant="-5" id="XF0-IS-rcA"/>
+                            <constraint firstItem="zb9-1e-Cbp" firstAttribute="top" secondItem="GXN-Cb-XIU" secondAttribute="bottom" constant="20" id="ehN-iZ-zHQ"/>
+                            <constraint firstItem="ebF-zV-Djs" firstAttribute="top" secondItem="zb9-1e-Cbp" secondAttribute="bottom" constant="20" id="hDk-0i-3FZ"/>
+                            <constraint firstItem="GXN-Cb-XIU" firstAttribute="leading" secondItem="Qn6-r9-SDl" secondAttribute="leading" id="hQF-rC-CD0"/>
+                            <constraint firstItem="cnM-7i-NxR" firstAttribute="leading" secondItem="Qn6-r9-SDl" secondAttribute="leadingMargin" constant="10" id="rFI-Gi-brZ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -256,13 +375,26 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="author" destination="3PJ-gF-9vL" id="P1d-Ur-hvk"/>
+                        <outlet property="backView" destination="zb9-1e-Cbp" id="Zzl-II-BQq"/>
+                        <outlet property="bookName" destination="3sl-oq-QVn" id="HO3-fb-yVD"/>
+                        <outlet property="checkout" destination="JVa-Zn-Il9" id="7vP-ex-EgS"/>
+                        <outlet property="checkoutInfo" destination="NXF-iL-xYT" id="vkG-jd-oKA"/>
+                        <outlet property="navigationBar" destination="GXN-Cb-XIU" id="Rbs-7k-qVD"/>
+                        <outlet property="publisher" destination="GCX-n1-hI8" id="f35-Nt-eMn"/>
+                        <outlet property="returnButton" destination="cnM-7i-NxR" id="qgx-O1-mVB"/>
+                        <outlet property="tags" destination="Gi5-HH-jzB" id="RAK-CH-GCi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGs-ri-Q15" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8tH-A7-7f5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="970.5" y="449.5"/>
+            <point key="canvasLocation" x="1078.5" y="449.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="backArrow.png" width="61" height="102"/>
         <image name="plus.png" width="80" height="80"/>
     </resources>
 </document>

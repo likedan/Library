@@ -12,6 +12,7 @@
 		423BE0C81ABB7A1A00133302 /* UIViewFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423BE0C71ABB7A1A00133302 /* UIViewFunctions.m */; };
 		42C5BDA21ABBA5FE00284266 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C5BDA11ABBA5FE00284266 /* CustomSegue.m */; };
 		42C5BDA61ABBA98600284266 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C5BDA51ABBA98600284266 /* backArrow.png */; };
+		42C5BDAA1ABBB05400284266 /* BookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C5BDA91ABBB05400284266 /* BookDetailsViewController.m */; };
 		42D04C0B1ABA66C200A22B28 /* BookshelfViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D04C0A1ABA66C200A22B28 /* BookshelfViewCell.m */; };
 		42D04C141ABA7C1200A22B28 /* InternetConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D04C131ABA7C1200A22B28 /* InternetConnection.m */; };
 		42FE5DC21ABA5C84005B6673 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5DC11ABA5C84005B6673 /* main.m */; };
@@ -42,6 +43,8 @@
 		42C5BDA01ABBA5FE00284266 /* CustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegue.h; sourceTree = "<group>"; };
 		42C5BDA11ABBA5FE00284266 /* CustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegue.m; sourceTree = "<group>"; };
 		42C5BDA51ABBA98600284266 /* backArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow.png; sourceTree = "<group>"; };
+		42C5BDA81ABBB05400284266 /* BookDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailsViewController.h; sourceTree = "<group>"; };
+		42C5BDA91ABBB05400284266 /* BookDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailsViewController.m; sourceTree = "<group>"; };
 		42D04C091ABA66C200A22B28 /* BookshelfViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookshelfViewCell.h; sourceTree = "<group>"; };
 		42D04C0A1ABA66C200A22B28 /* BookshelfViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookshelfViewCell.m; sourceTree = "<group>"; };
 		42D04C121ABA7C1200A22B28 /* InternetConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetConnection.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				42FE5DC41ABA5C84005B6673 /* AppDelegate.m */,
 				42FE5DC91ABA5C84005B6673 /* ViewController.h */,
 				42FE5DCA1ABA5C84005B6673 /* ViewController.m */,
+				42C5BDA81ABBB05400284266 /* BookDetailsViewController.h */,
+				42C5BDA91ABBB05400284266 /* BookDetailsViewController.m */,
 				42D04C091ABA66C200A22B28 /* BookshelfViewCell.h */,
 				42D04C0A1ABA66C200A22B28 /* BookshelfViewCell.m */,
 				42C5BDA01ABBA5FE00284266 /* CustomSegue.h */,
@@ -335,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D04C141ABA7C1200A22B28 /* InternetConnection.m in Sources */,
+				42C5BDAA1ABBB05400284266 /* BookDetailsViewController.m in Sources */,
 				42D04C0B1ABA66C200A22B28 /* BookshelfViewCell.m in Sources */,
 				42FE5DC51ABA5C84005B6673 /* AppDelegate.m in Sources */,
 				423BE0C81ABB7A1A00133302 /* UIViewFunctions.m in Sources */,

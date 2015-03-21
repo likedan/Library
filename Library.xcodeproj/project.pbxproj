@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38880BD1E6E3D93C57FE9949 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5AE6D60FDDC962F7CE3905 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		420EBA271ABCD45500DDC036 /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EBA261ABCD45500DDC036 /* AddBookViewController.m */; };
 		423BE0C51ABB657400133302 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 423BE0C41ABB657400133302 /* plus.png */; };
 		423BE0C81ABB7A1A00133302 /* UIViewFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423BE0C71ABB7A1A00133302 /* UIViewFunctions.m */; };
 		42C5BDA21ABBA5FE00284266 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C5BDA11ABBA5FE00284266 /* CustomSegue.m */; };
@@ -15,6 +16,9 @@
 		42C5BDAA1ABBB05400284266 /* BookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C5BDA91ABBB05400284266 /* BookDetailsViewController.m */; };
 		42D04C0B1ABA66C200A22B28 /* BookshelfViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D04C0A1ABA66C200A22B28 /* BookshelfViewCell.m */; };
 		42D04C141ABA7C1200A22B28 /* InternetConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D04C131ABA7C1200A22B28 /* InternetConnection.m */; };
+		42F11FF31ABC811D000E4C52 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 42F11FF21ABC811D000E4C52 /* check.png */; };
+		42F11FF51ABC9492000E4C52 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 42F11FF41ABC9492000E4C52 /* trash.png */; };
+		42F11FF91ABCB5D9000E4C52 /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = 42F11FF81ABCB5D9000E4C52 /* textField.png */; };
 		42FE5DC21ABA5C84005B6673 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5DC11ABA5C84005B6673 /* main.m */; };
 		42FE5DC51ABA5C84005B6673 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5DC41ABA5C84005B6673 /* AppDelegate.m */; };
 		42FE5DC81ABA5C84005B6673 /* Library.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42FE5DC61ABA5C84005B6673 /* Library.xcdatamodeld */; };
@@ -37,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		3AEDED8738AA656D16535C38 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		420EBA251ABCD45500DDC036 /* AddBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBookViewController.h; sourceTree = "<group>"; };
+		420EBA261ABCD45500DDC036 /* AddBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBookViewController.m; sourceTree = "<group>"; };
 		423BE0C41ABB657400133302 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		423BE0C61ABB7A1A00133302 /* UIViewFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewFunctions.h; sourceTree = "<group>"; };
 		423BE0C71ABB7A1A00133302 /* UIViewFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewFunctions.m; sourceTree = "<group>"; };
@@ -49,6 +55,9 @@
 		42D04C0A1ABA66C200A22B28 /* BookshelfViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookshelfViewCell.m; sourceTree = "<group>"; };
 		42D04C121ABA7C1200A22B28 /* InternetConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetConnection.h; sourceTree = "<group>"; };
 		42D04C131ABA7C1200A22B28 /* InternetConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetConnection.m; sourceTree = "<group>"; };
+		42F11FF21ABC811D000E4C52 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		42F11FF41ABC9492000E4C52 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
+		42F11FF81ABCB5D9000E4C52 /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		42FE5DBC1ABA5C84005B6673 /* Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FE5DC01ABA5C84005B6673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42FE5DC11ABA5C84005B6673 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,8 +98,11 @@
 		423BE0C31ABB655800133302 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				42F11FF81ABCB5D9000E4C52 /* textField.png */,
+				42F11FF41ABC9492000E4C52 /* trash.png */,
 				423BE0C41ABB657400133302 /* plus.png */,
 				42C5BDA51ABBA98600284266 /* backArrow.png */,
+				42F11FF21ABC811D000E4C52 /* check.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -124,6 +136,8 @@
 				42FE5DCA1ABA5C84005B6673 /* ViewController.m */,
 				42C5BDA81ABBB05400284266 /* BookDetailsViewController.h */,
 				42C5BDA91ABBB05400284266 /* BookDetailsViewController.m */,
+				420EBA251ABCD45500DDC036 /* AddBookViewController.h */,
+				420EBA261ABCD45500DDC036 /* AddBookViewController.m */,
 				42D04C091ABA66C200A22B28 /* BookshelfViewCell.h */,
 				42D04C0A1ABA66C200A22B28 /* BookshelfViewCell.m */,
 				42C5BDA01ABBA5FE00284266 /* CustomSegue.h */,
@@ -269,9 +283,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F11FF31ABC811D000E4C52 /* check.png in Resources */,
+				42F11FF91ABCB5D9000E4C52 /* textField.png in Resources */,
 				42FE5DCE1ABA5C84005B6673 /* Main.storyboard in Resources */,
 				42FE5DD31ABA5C84005B6673 /* LaunchScreen.xib in Resources */,
 				42FE5DD01ABA5C84005B6673 /* Images.xcassets in Resources */,
+				42F11FF51ABC9492000E4C52 /* trash.png in Resources */,
 				423BE0C51ABB657400133302 /* plus.png in Resources */,
 				42C5BDA61ABBA98600284266 /* backArrow.png in Resources */,
 			);
@@ -342,6 +359,7 @@
 				42D04C141ABA7C1200A22B28 /* InternetConnection.m in Sources */,
 				42C5BDAA1ABBB05400284266 /* BookDetailsViewController.m in Sources */,
 				42D04C0B1ABA66C200A22B28 /* BookshelfViewCell.m in Sources */,
+				420EBA271ABCD45500DDC036 /* AddBookViewController.m in Sources */,
 				42FE5DC51ABA5C84005B6673 /* AppDelegate.m in Sources */,
 				423BE0C81ABB7A1A00133302 /* UIViewFunctions.m in Sources */,
 				42C5BDA21ABBA5FE00284266 /* CustomSegue.m in Sources */,

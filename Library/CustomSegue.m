@@ -27,16 +27,19 @@
 
 - (void) performBookToDetails {
     ((BookDetailsViewController*)self.destinationViewController).returnButton.alpha = 0;
-    
+    ((BookDetailsViewController*)self.destinationViewController).backView.alpha = 0;
+
     [UIView animateWithDuration:0.3 animations:^{
-        ((ViewController*)self.sourceViewController).plus.alpha = 0;
+        ((ViewController*)self.sourceViewController).addBook.alpha = 0;
     } completion:^(BOOL finished) {
-        // Access the app's key window and insert the destination view above the current (source) one.
+
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];
         [window insertSubview:[self.destinationViewController view] aboveSubview:[self.sourceViewController view]];
         [self.sourceViewController presentViewController:self.destinationViewController animated:false completion:^{
             [UIView animateWithDuration:0.5 animations:^{
                 ((BookDetailsViewController*)self.destinationViewController).returnButton.alpha = 1;
+                ((BookDetailsViewController*)self.destinationViewController).backView.alpha = 1;
+
             } completion:^(BOOL finished) {
             }];
         }];
@@ -56,7 +59,7 @@
         [window insertSubview:[self.destinationViewController view] aboveSubview:[self.sourceViewController view]];
         [self.sourceViewController dismissViewControllerAnimated:false completion:^{
             [UIView animateWithDuration:0.5 animations:^{
-                ((ViewController*)self.destinationViewController).plus.alpha = 1;
+                ((ViewController*)self.destinationViewController).addBook.alpha = 1;
             } completion:^(BOOL finished) {
             }];
         }];

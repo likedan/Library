@@ -34,5 +34,7 @@ id <InternetConnectionDelegate> delegate;
 - (instancetype)init :(NSString*)suffix parameters:(NSDictionary*)parameters;
 - (void) sendGetRequest;
 - (void) sendPostRequest;
+- (void) sendPutRequest;
+- (void) sendDeleteRequest;
 
 @end

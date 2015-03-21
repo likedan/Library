@@ -16,26 +16,79 @@
 
 @implementation ViewController{
     NSString* chosenBook;
+    Boolean deleteMode;
+    NSMutableDictionary *booksToDelete;
+
 }
 
 @synthesize bookTable;
 @synthesize navigationBar;
 @synthesize loadingView;
-@synthesize plus;
+@synthesize addBook;
+@synthesize removeBook;
+@synthesize deleteModenavigationBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    deleteMode = false;
     
     navigationBar.layer.shadowOffset = CGSizeMake(0, 2);
     navigationBar.layer.shadowRadius = 1;
     navigationBar.layer.shadowOpacity = 0.3;
     
-    bookList = [[NSMutableArray alloc] init];
+    bookDict = [[NSMutableDictionary alloc] init];
     
     self.bookTable.estimatedRowHeight = self.view.bounds.size.width / 1.4;
-
+    booksToDelete = [[NSMutableDictionary alloc] init];
     [self requestBookList];
+    
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+
+- (IBAction)removeBookClicked:(id)sender {
+    deleteMode = true;
+    deleteModenavigationBar.alpha = 1;
+    [self.view bringSubviewToFront:deleteModenavigationBar];
+}
+
+- (IBAction) cancelDeleteClicked:(id)sender {
+    deleteMode = false;
+    deleteModenavigationBar.alpha = 0;
+    
+    //set all cell all return to normal
+    for (int index = 0; index < booksToDelete.count; index++ ) {
+        BookshelfViewCell *cell = [booksToDelete objectForKey:[booksToDelete allKeys][index]];
+        UIView* bookBack = [[booksToDelete allKeys][index] pointerValue];
+        [cell quitFromDeleteMode:bookBack];
+    }
+    [booksToDelete removeAllObjects];
+}
+
+- (IBAction) confirmDeleteClicked:(id)sender {
+    deleteMode = false;
+    deleteModenavigationBar.alpha = 0;
+
+    //set all cell all return to normal
+    for (int index = 0; index < booksToDelete.count; index++ ) {
+        BookshelfViewCell *cell = [booksToDelete objectForKey:[booksToDelete allKeys][index]];
+        UIView* bookBack = [[booksToDelete allKeys][index] pointerValue];
+        [cell quitFromDeleteMode:bookBack];
+        //check if the first book or second book in the cell
+        NSString *bookname;
+        if (bookBack == cell.book1back) {
+            bookname = cell.book1Name.text;
+        } else if (bookBack == cell.book2back) {
+            bookname = cell.book2Name.text;
+        }
+        InternetConnection *connection = [[InternetConnection alloc] init:[[bookDict objectForKey:bookname] objectForKey:@"url"] parameters:nil];
+        [connection sendDeleteRequest];
+        [bookDict removeObjectForKey:bookname];
+    }
+    
+    [self storeDataToLocal:bookDict];
+    [booksToDelete removeAllObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -45,10 +98,10 @@
     if(cell == nil) {
         cell = [[BookshelfViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shelfCell"];
     }
-    NSMutableDictionary *message1 = self->bookList[indexPath.row * 2];
+    NSMutableDictionary *message1 = [self->bookDict objectForKey:[self->bookDict allKeys][indexPath.row * 2]];
     NSMutableDictionary *message2 = nil;
-    if (bookList.count >= indexPath.row * 2 + 1) {
-        message2 = self->bookList[indexPath.row * 2 + 1];
+    if ([self->bookDict allKeys].count > indexPath.row * 2 + 1) {
+        message2 = [self->bookDict objectForKey:[self->bookDict allKeys][indexPath.row * 2 + 1]];
     }
 
     [cell setupCell:message1 book2:message2];
@@ -59,7 +112,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return (self->bookList.count + 1) / 2;
+    return ([self->bookDict allKeys].count + 1) / 2;
 }
 
 // request the booklist from the server
@@ -67,9 +120,8 @@
     
     [self.view bringSubviewToFront: loadingView];
     [self.view bringSubviewToFront: navigationBar];
-    [self.view bringSubviewToFront: plus];
 
-    InternetConnection *connection = [[InternetConnection alloc] init:@"books" parameters:nil];
+    InternetConnection *connection = [[InternetConnection alloc] init:@"/books" parameters:nil];
     connection.delegate = self;
     [connection sendGetRequest];
 }
@@ -81,19 +133,15 @@
     
     NSLog(@"%@",result);
     
-    if ([suffix isEqual: @"books"]) {
+    if ([suffix isEqual: @"/books"]) {
         
-        bookList = [NSMutableArray arrayWithArray:(NSArray *)result];
+        NSMutableArray *bookList = [NSMutableArray arrayWithArray:(NSArray *)result];
         //save booklist as a dictionary
         bookDict = [[NSMutableDictionary alloc] init];
         for (int index = 0; index < bookList.count; index++) {
             [bookDict setObject:bookList[index] forKey:[bookList[index] objectForKey:@"title"]];
         }
-        // Store the data
-        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:bookDict] forKey:@"books"];
-        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:bookList] forKey:@"booklist"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [bookTable reloadData];
+        [self storeDataToLocal:bookDict];
     }
 }
 
@@ -101,14 +149,22 @@
     
     [self.view sendSubviewToBack: self.loadingView];
 
-    if ([suffix isEqual: @"books"]) {
-        //retrieve local data
-        
-        bookDict = [[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"books"]] mutableCopy];
-        bookList = [[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"booklist"]] mutableCopy];
-        [bookTable reloadData];
-
+    if ([suffix isEqual: @"/books"]) {
+        [self updateWithLocaData];
     }
+}
+// Store the data
+- (void) storeDataToLocal :(NSDictionary*)dict {
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:dict] forKey:@"books"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [bookTable reloadData];
+}
+
+//retrieve local data
+- (void) updateWithLocaData {
+    bookDict = [[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"books"]] mutableCopy];
+    [bookTable reloadData];
+
 }
 
 - (void)bookClicked:(NSString *)title cell:(BookshelfViewCell *)cell{
@@ -122,26 +178,36 @@
         bookBack = cell.book2back;
     }
     
-    // find the corresponding position
-    CGPoint origin = [cell.contentView convertPoint:bookBack.frame.origin toView:self.bookTable];
-    
-    NSLog(@"%f",bookTable.contentOffset.y);
-    
-    UIView *back = [[UIView alloc] initWithFrame:CGRectMake(origin.x, origin.y, bookBack.frame.size.width, bookBack.frame.size.height)];
-    back.backgroundColor = bookBack.backgroundColor;
-    [self.bookTable addSubview:back];
-    back.layer.shadowOffset = CGSizeMake(0, 3);
-    back.layer.shadowRadius = 2;
-    back.layer.shadowOpacity = 0.5;
-    
-    //render the vew as image
-    UIImage *coverimg = [UIViewFunctions getImageFromView:bookBack];
-    UIImageView *cover = [[UIImageView alloc] initWithImage:coverimg];
-    [cover setFrame: back.bounds];
-    [back addSubview:cover];
-    
-    [self openBookAnimation:cover bookBack:back];
-
+    if (!deleteMode) {
+        // find the corresponding position
+        CGPoint origin = [cell.contentView convertPoint:bookBack.frame.origin toView:self.bookTable];
+        
+        NSLog(@"%f",bookTable.contentOffset.y);
+        
+        UIView *back = [[UIView alloc] initWithFrame:CGRectMake(origin.x, origin.y, bookBack.frame.size.width, bookBack.frame.size.height)];
+        back.backgroundColor = bookBack.backgroundColor;
+        [self.bookTable addSubview:back];
+        back.layer.shadowOffset = CGSizeMake(0, 3);
+        back.layer.shadowRadius = 2;
+        back.layer.shadowOpacity = 0.5;
+        
+        //render the vew as image
+        UIImage *coverimg = [UIViewFunctions getImageFromView:bookBack];
+        UIImageView *cover = [[UIImageView alloc] initWithImage:coverimg];
+        [cover setFrame: back.bounds];
+        [back addSubview:cover];
+        
+        [self openBookAnimation:cover bookBack:back];
+    }else{
+        // handle delete mode
+        if ([booksToDelete objectForKey:[NSValue valueWithPointer:(__bridge const void *)(bookBack)]] != nil) {
+            [cell quitFromDeleteMode:bookBack];
+            [booksToDelete removeObjectForKey:[NSValue valueWithPointer:(__bridge const void *)(bookBack)]];
+        }else {
+            [cell setToDeleteMode:bookBack];
+            [booksToDelete setObject:cell forKey:[NSValue valueWithPointer:(__bridge const void *)(bookBack)]];
+        }
+    }
 }
 
 - (void) openBookAnimation :(UIView*)bookCover bookBack:(UIView*)bookBack {
@@ -182,7 +248,7 @@
 }
 
 - (IBAction)dismissToMain:(UIStoryboardSegue *)segue {
-    
+    [self updateWithLocaData];
 }
 
 - (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier{

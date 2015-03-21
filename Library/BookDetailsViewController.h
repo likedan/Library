@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InternetConnection.h"
 
-@interface BookDetailsViewController : UIViewController
+@interface BookDetailsViewController : UIViewController <UITextFieldDelegate, InternetConnectionDelegate>
 
 @property(nonatomic,strong) IBOutlet UILabel *publisher;
 @property(nonatomic,strong) IBOutlet UILabel *tags;

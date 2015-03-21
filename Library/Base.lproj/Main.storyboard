@@ -7,6 +7,177 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Add Book View Controller-->
+        <scene sceneID="fjH-gt-vIa">
+            <objects>
+                <viewController id="fDw-cA-PSj" customClass="AddBookViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6MC-2c-1Lb"/>
+                        <viewControllerLayoutGuide type="bottom" id="64x-EU-Cof"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9to-my-yl5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uce-C1-DQq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uce-C1-DQq" secondAttribute="height" multiplier="150:32" id="acl-k5-XAl"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.86022238760000003" green="0.78342073560000003" blue="0.55301577970000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="ADD BOOK" id="gAs-MP-eEr">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="KNF-l1-oXL">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G1t-IU-lIw">
+                                                <rect key="frame" x="26" y="35" width="30" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="u4T-3J-COy"/>
+                                                    <constraint firstAttribute="width" constant="30" id="uQ3-iL-1Bn"/>
+                                                </constraints>
+                                                <state key="normal" image="backArrow.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="X96-lS-zGA" kind="unwind" identifier="returnToMainFromAddBook" unwindAction="dismissToMain:" id="G8V-N9-qFZ"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="EnP-4G-SxZ">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DOS-sy-rKE">
+                                                <rect key="frame" x="233" y="-4" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="4Id-kA-7HS"/>
+                                                    <constraint firstAttribute="width" constant="40" id="qQ7-KB-jET"/>
+                                                </constraints>
+                                                <state key="normal" image="plus.png"/>
+                                                <connections>
+                                                    <action selector="addClicked:" destination="fDw-cA-PSj" eventType="touchUpInside" id="lJm-bs-BAt"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTo-fu-za7">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SmP-im-Nyp">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsD-BR-Vr2">
+                                            <rect key="frame" x="20" y="20" width="335" height="547"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Author" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zpt-C8-HGL">
+                                                    <rect key="frame" x="10" y="88" width="315" height="50"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="V5I-sX-BBL"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="fDw-cA-PSj" id="MAj-ux-BZO"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Publisher" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLM-UZ-nvr">
+                                                    <rect key="frame" x="10" y="158" width="315" height="50"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="2Zu-1O-35Q"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="fDw-cA-PSj" id="AcO-wF-Vuk"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" alpha="0.850000011920929" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Categories" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eiv-0b-TZ3">
+                                                    <rect key="frame" x="10" y="228" width="315" height="50"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="ArF-DX-aE1"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="fDw-cA-PSj" id="Yl7-ov-AnB"/>
+                                                    </connections>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Book Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-Uz-phx">
+                                                    <rect key="frame" x="10" y="18" width="315" height="50"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="Xle-yT-2QR"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="fDw-cA-PSj" id="psz-SP-tuo"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zpt-C8-HGL" firstAttribute="top" secondItem="MHw-Uz-phx" secondAttribute="bottom" constant="20" id="79l-5h-1fs"/>
+                                                <constraint firstItem="MHw-Uz-phx" firstAttribute="top" secondItem="hsD-BR-Vr2" secondAttribute="topMargin" constant="10" id="9Mz-GV-bn6"/>
+                                                <constraint firstAttribute="trailing" secondItem="eiv-0b-TZ3" secondAttribute="trailing" constant="10" id="9kZ-XC-xOe"/>
+                                                <constraint firstItem="Zpt-C8-HGL" firstAttribute="leading" secondItem="hsD-BR-Vr2" secondAttribute="leading" constant="10" id="Cjc-6r-W7o"/>
+                                                <constraint firstItem="DLM-UZ-nvr" firstAttribute="leading" secondItem="hsD-BR-Vr2" secondAttribute="leading" constant="10" id="I2P-Sb-vXu"/>
+                                                <constraint firstAttribute="trailing" secondItem="MHw-Uz-phx" secondAttribute="trailing" constant="10" id="J5R-i6-pMl"/>
+                                                <constraint firstItem="MHw-Uz-phx" firstAttribute="leading" secondItem="hsD-BR-Vr2" secondAttribute="leading" constant="10" id="UKC-9N-Q3Y"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zpt-C8-HGL" secondAttribute="trailing" constant="10" id="gfN-OO-0tx"/>
+                                                <constraint firstItem="eiv-0b-TZ3" firstAttribute="top" secondItem="DLM-UZ-nvr" secondAttribute="bottom" constant="20" id="j7M-l5-Dtj"/>
+                                                <constraint firstAttribute="trailing" secondItem="DLM-UZ-nvr" secondAttribute="trailing" constant="10" id="lsF-5A-fDp"/>
+                                                <constraint firstItem="eiv-0b-TZ3" firstAttribute="leading" secondItem="hsD-BR-Vr2" secondAttribute="leading" constant="10" id="n3V-h0-YYf"/>
+                                                <constraint firstItem="DLM-UZ-nvr" firstAttribute="top" secondItem="Zpt-C8-HGL" secondAttribute="bottom" constant="20" id="owD-XB-fl6"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hsD-BR-Vr2" firstAttribute="top" secondItem="SmP-im-Nyp" secondAttribute="top" constant="20" id="SaC-8g-dtW"/>
+                                        <constraint firstItem="hsD-BR-Vr2" firstAttribute="leading" secondItem="SmP-im-Nyp" secondAttribute="leading" constant="20" id="fdE-OP-jAV"/>
+                                        <constraint firstAttribute="trailing" secondItem="hsD-BR-Vr2" secondAttribute="trailing" constant="20" id="ppy-RE-Elz"/>
+                                        <constraint firstAttribute="bottom" secondItem="hsD-BR-Vr2" secondAttribute="bottom" constant="20" id="u5S-PV-kqr"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="uce-C1-DQq" firstAttribute="leading" secondItem="9to-my-yl5" secondAttribute="leading" id="940-fe-yXK"/>
+                            <constraint firstAttribute="trailing" secondItem="gTo-fu-za7" secondAttribute="trailing" id="d6p-KD-PHs"/>
+                            <constraint firstAttribute="trailing" secondItem="uce-C1-DQq" secondAttribute="trailing" id="l4W-aR-GwC"/>
+                            <constraint firstItem="64x-EU-Cof" firstAttribute="top" secondItem="gTo-fu-za7" secondAttribute="bottom" id="lDT-lf-kT2"/>
+                            <constraint firstItem="gTo-fu-za7" firstAttribute="top" secondItem="uce-C1-DQq" secondAttribute="bottom" id="rlC-Lh-hIN"/>
+                            <constraint firstItem="uce-C1-DQq" firstAttribute="top" secondItem="9to-my-yl5" secondAttribute="top" id="s75-tk-kgE"/>
+                            <constraint firstItem="gTo-fu-za7" firstAttribute="leading" secondItem="9to-my-yl5" secondAttribute="leading" id="xDO-3D-r1a"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="add" destination="DOS-sy-rKE" id="CVv-yl-xYg"/>
+                        <outlet property="author" destination="Zpt-C8-HGL" id="rHB-Ah-K2u"/>
+                        <outlet property="back" destination="hsD-BR-Vr2" id="t6s-ln-MWe"/>
+                        <outlet property="bookName" destination="MHw-Uz-phx" id="Ixd-Qu-POk"/>
+                        <outlet property="categories" destination="eiv-0b-TZ3" id="IvS-n2-GF3"/>
+                        <outlet property="publisher" destination="DLM-UZ-nvr" id="jZd-Jb-sAf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKs-5Z-tIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="X96-lS-zGA" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1493.5" y="-354.5"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -94,8 +265,8 @@
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The Death of the Salesman" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="mup-5L-f9C">
-                                                                    <rect key="frame" x="5" y="5" width="157.5" height="134"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Death of the Salesman" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="mup-5L-f9C">
+                                                                    <rect key="frame" x="5" y="5" width="157.5" height="133"/>
                                                                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -174,48 +345,105 @@
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="BOOKS" id="0db-cW-3nE"/>
+                                    <navigationItem title="BOOKS" id="0db-cW-3nE">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="t8j-wu-Yjf">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C5E-mB-wex">
+                                                <rect key="frame" x="10" y="35" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="UWp-45-nm1"/>
+                                                    <constraint firstAttribute="width" constant="40" id="WRa-a4-MJJ"/>
+                                                </constraints>
+                                                <state key="normal" image="plus.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="fDw-cA-PSj" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="coverVertical" id="JHU-me-Vx7"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Hp0-bY-u9E">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8L9-aH-kNj">
+                                                <rect key="frame" x="325" y="35" width="40" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="KTr-7d-Q0g"/>
+                                                    <constraint firstAttribute="width" constant="40" id="hlx-FA-864"/>
+                                                </constraints>
+                                                <state key="normal" image="trash.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="removeBookClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0T4-dA-O6u"/>
+                                                </connections>
+                                            </button>
+                                            <connections>
+                                                <action selector="removeBookClicked:" destination="vXZ-lx-hvc" id="Spm-ki-svB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5E-mB-wex">
-                                <rect key="frame" x="10" y="35" width="40" height="40"/>
+                            <navigationBar alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-5N-cqV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="UWp-45-nm1"/>
-                                    <constraint firstAttribute="width" constant="40" id="WRa-a4-MJJ"/>
+                                    <constraint firstAttribute="width" secondItem="vcq-5N-cqV" secondAttribute="height" multiplier="150:32" id="MDI-ta-iaA"/>
                                 </constraints>
-                                <state key="normal" image="plus.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                                <color key="barTintColor" red="0.86022238760000003" green="0.78342073560000003" blue="0.55301577970000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Courier-Oblique" family="Courier" pointSize="30"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="BOOKS" id="6Um-o1-GIg">
+                                        <barButtonItem key="leftBarButtonItem" title="Delete" id="9b4-2g-QhT">
+                                            <connections>
+                                                <action selector="confirmDeleteClicked:" destination="vXZ-lx-hvc" id="yAW-Lt-wXW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="QhQ-wQ-9fW">
+                                            <connections>
+                                                <action selector="cancelDeleteClicked:" destination="vXZ-lx-hvc" id="ads-nN-Pwr"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BN9-E8-dQ2" secondAttribute="trailing" id="5Oj-bn-3rL"/>
-                            <constraint firstItem="BN9-E8-dQ2" firstAttribute="bottom" secondItem="C5E-mB-wex" secondAttribute="bottom" constant="5" id="79n-3s-VUe"/>
                             <constraint firstItem="Q6p-pd-DYs" firstAttribute="top" secondItem="BN9-E8-dQ2" secondAttribute="bottom" id="BdI-C5-9eu"/>
                             <constraint firstItem="Q6p-pd-DYs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="C3O-bF-80I"/>
-                            <constraint firstItem="C5E-mB-wex" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="10" id="G4q-Fr-PXp"/>
                             <constraint firstAttribute="trailing" secondItem="PZR-u6-XMs" secondAttribute="trailing" id="KUl-cA-57j"/>
+                            <constraint firstItem="vcq-5N-cqV" firstAttribute="width" secondItem="vcq-5N-cqV" secondAttribute="height" multiplier="150:32" id="Ka8-x4-Ad0"/>
                             <constraint firstItem="PZR-u6-XMs" firstAttribute="top" secondItem="BN9-E8-dQ2" secondAttribute="bottom" id="MBg-pL-Fdo"/>
                             <constraint firstItem="BN9-E8-dQ2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="OFr-V1-kgz"/>
+                            <constraint firstItem="vcq-5N-cqV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Sj9-jk-W1d"/>
+                            <constraint firstItem="vcq-5N-cqV" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="WC0-eb-kmg"/>
                             <constraint firstItem="PZR-u6-XMs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="cOl-HI-lHg"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Q6p-pd-DYs" secondAttribute="bottom" id="hsV-O1-q9S"/>
                             <constraint firstItem="BN9-E8-dQ2" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="kA2-vR-fkL"/>
+                            <constraint firstAttribute="trailing" secondItem="vcq-5N-cqV" secondAttribute="trailing" id="ltr-Xe-baY"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="PZR-u6-XMs" secondAttribute="bottom" id="uCO-M4-b4f"/>
                             <constraint firstAttribute="trailing" secondItem="Q6p-pd-DYs" secondAttribute="trailing" id="vCJ-yr-oqQ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="eAN-hg-dYv"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bookTable" destination="PZR-u6-XMs" id="BjB-Gp-9Mn"/>
+                        <outlet property="deleteModenavigationBar" destination="vcq-5N-cqV" id="i5J-og-CCe"/>
                         <outlet property="loadingView" destination="Q6p-pd-DYs" id="zir-lm-FSf"/>
                         <outlet property="navigationBar" destination="BN9-E8-dQ2" id="xVW-ld-qjD"/>
-                        <outlet property="plus" destination="C5E-mB-wex" id="Yzn-RF-A5h"/>
+                        <outlet property="removeBook" destination="8L9-aH-kNj" id="Tx6-st-nZz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="314.5" y="539.5"/>
+            <point key="canvasLocation" x="1126.5" y="539.5"/>
         </scene>
         <!--Book Details View Controller-->
         <scene sceneID="vhY-7A-vpO">
@@ -241,22 +469,26 @@
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="BOOK" id="SDr-0X-4kx"/>
+                                    <navigationItem title="BOOK" id="SDr-0X-4kx">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="g2D-Og-ora">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cnM-7i-NxR">
+                                                <rect key="frame" x="26" y="35" width="30" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="NOZ-sp-oPB"/>
+                                                    <constraint firstAttribute="width" constant="30" id="xQX-1m-MaD"/>
+                                                </constraints>
+                                                <state key="normal" image="backArrow.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="8tH-A7-7f5" kind="unwind" identifier="detailToMain" unwindAction="dismissToMain:" id="FU5-VU-iNP"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnM-7i-NxR">
-                                <rect key="frame" x="26" y="35" width="30" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="NOZ-sp-oPB"/>
-                                    <constraint firstAttribute="width" constant="30" id="xQX-1m-MaD"/>
-                                </constraints>
-                                <state key="normal" image="backArrow.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="8tH-A7-7f5" kind="unwind" identifier="detailToMain" unwindAction="dismissToMain:" id="FU5-VU-iNP"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-1e-Cbp" userLabel="Content View">
                                 <rect key="frame" x="20" y="100" width="335" height="547"/>
                                 <subviews>
@@ -322,6 +554,9 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="checkoutClicked:" destination="EeF-Ep-yFe" eventType="touchUpInside" id="Fgg-CF-SOd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -362,11 +597,9 @@
                             <constraint firstItem="zb9-1e-Cbp" firstAttribute="leading" secondItem="Qn6-r9-SDl" secondAttribute="leading" constant="20" id="JNR-ff-VMH"/>
                             <constraint firstAttribute="trailing" secondItem="zb9-1e-Cbp" secondAttribute="trailing" constant="20" id="JgS-L7-a9A"/>
                             <constraint firstAttribute="trailing" secondItem="GXN-Cb-XIU" secondAttribute="trailing" id="O9I-eI-fsx"/>
-                            <constraint firstItem="cnM-7i-NxR" firstAttribute="bottom" secondItem="GXN-Cb-XIU" secondAttribute="bottom" constant="-5" id="XF0-IS-rcA"/>
                             <constraint firstItem="zb9-1e-Cbp" firstAttribute="top" secondItem="GXN-Cb-XIU" secondAttribute="bottom" constant="20" id="ehN-iZ-zHQ"/>
                             <constraint firstItem="ebF-zV-Djs" firstAttribute="top" secondItem="zb9-1e-Cbp" secondAttribute="bottom" constant="20" id="hDk-0i-3FZ"/>
                             <constraint firstItem="GXN-Cb-XIU" firstAttribute="leading" secondItem="Qn6-r9-SDl" secondAttribute="leading" id="hQF-rC-CD0"/>
-                            <constraint firstItem="cnM-7i-NxR" firstAttribute="leading" secondItem="Qn6-r9-SDl" secondAttribute="leadingMargin" constant="10" id="rFI-Gi-brZ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -379,6 +612,7 @@
                         <outlet property="author" destination="3PJ-gF-9vL" id="P1d-Ur-hvk"/>
                         <outlet property="backView" destination="zb9-1e-Cbp" id="Zzl-II-BQq"/>
                         <outlet property="bookName" destination="3sl-oq-QVn" id="HO3-fb-yVD"/>
+                        <outlet property="buttonRightConstrain" destination="IfU-FW-gVd" id="hf2-62-9bt"/>
                         <outlet property="checkout" destination="JVa-Zn-Il9" id="7vP-ex-EgS"/>
                         <outlet property="checkoutInfo" destination="NXF-iL-xYT" id="vkG-jd-oKA"/>
                         <outlet property="navigationBar" destination="GXN-Cb-XIU" id="Rbs-7k-qVD"/>
@@ -390,11 +624,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGs-ri-Q15" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8tH-A7-7f5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1078.5" y="449.5"/>
+            <point key="canvasLocation" x="1890.5" y="449.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="backArrow.png" width="61" height="102"/>
         <image name="plus.png" width="80" height="80"/>
+        <image name="trash.png" width="80" height="80"/>
     </resources>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

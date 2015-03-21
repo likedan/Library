@@ -13,14 +13,15 @@
 
 @interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, InternetConnectionDelegate, BookCellDelegate>{
     
-    NSMutableArray *bookList;
     NSMutableDictionary *bookDict;
 }
 
 @property(nonatomic, strong) IBOutlet UITableView *bookTable;
 @property(nonatomic, strong) IBOutlet UIVisualEffectView *loadingView;
 @property(nonatomic, strong) IBOutlet UINavigationBar *navigationBar;
-@property(nonatomic, strong) IBOutlet UIButton *plus;
+@property(nonatomic, strong) IBOutlet UINavigationBar *deleteModenavigationBar;
+@property(nonatomic, strong) IBOutlet UIButton *addBook;
+@property(nonatomic, strong) IBOutlet UIButton *removeBook;
 
 @end
 

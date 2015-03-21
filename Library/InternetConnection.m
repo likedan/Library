@@ -8,7 +8,7 @@
 
 #import "InternetConnection.h"
 
-#define SERVER "http://prolific-interview.herokuapp.com/5509cf58dfe21d000931b8f5/"
+#define SERVER "http://prolific-interview.herokuapp.com/5509cf58dfe21d000931b8f5"
 
 
 @implementation InternetConnection
@@ -46,6 +46,36 @@
 
         [[self delegate] gotResultFromServer:self.suffix result:responseObject];
 
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[self delegate] errorFromServer:self.suffix error:error];
+        
+    }];
+    
+}
+
+- (void) sendPutRequest {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager PUT:[NSString stringWithFormat:@"%s%@", SERVER, self.suffix] parameters:self.parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [[self delegate] gotResultFromServer:self.suffix result:responseObject];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [[self delegate] errorFromServer:self.suffix error:error];
+        
+    }];
+    
+}
+
+- (void) sendDeleteRequest {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager DELETE:[NSString stringWithFormat:@"%s%@", SERVER, self.suffix] parameters:self.parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [[self delegate] gotResultFromServer:self.suffix result:responseObject];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         [[self delegate] errorFromServer:self.suffix error:error];

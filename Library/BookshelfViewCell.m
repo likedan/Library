@@ -9,7 +9,13 @@
 #import "BookshelfViewCell.h"
 
 
-@implementation BookshelfViewCell
+@implementation BookshelfViewCell{
+    UIVisualEffectView *book1DeleteCover;
+    UIVisualEffectView *book2DeleteCover;
+    
+    UIImageView *book1Checked;
+    UIImageView *book2Checked;
+}
 
 @synthesize delegate;
 
@@ -63,6 +69,67 @@
 
     }
 }
+
+// set a book to delete mode
+- (void) setToDeleteMode :(UIView*)bookBack {
+        
+    if (bookBack == self.book1back) {
+        
+        // set up the cover views
+        book1DeleteCover = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+        book1DeleteCover.frame = bookBack.bounds;
+        book1DeleteCover.userInteractionEnabled = false;
+        [bookBack addSubview:book1DeleteCover];
+        
+        book1Checked = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
+        [book1Checked setFrame:CGRectMake(0, 0, 40, 40)];
+        [book1Checked setCenter:book1DeleteCover.center];
+        book1Checked.alpha = 0;
+        [bookBack addSubview:book1Checked];
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            book1Checked.alpha = 1;
+        }];
+        
+    }else if (bookBack == self.book2back){
+        // set up the cover views
+        book2DeleteCover = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+        book2DeleteCover.frame = bookBack.bounds;
+        book2DeleteCover.userInteractionEnabled = false;
+        [bookBack addSubview:book2DeleteCover];
+        
+        book2Checked = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
+        [book2Checked setFrame:CGRectMake(0, 0, 40, 40)];
+        [book2Checked setCenter:book2DeleteCover.center];
+        book2Checked.alpha = 0;
+        [bookBack addSubview:book2Checked];
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            book2Checked.alpha = 1;
+        }];
+
+    }
+}
+
+// remove the covers for delete mode
+- (void) quitFromDeleteMode :(UIView*)bookBack {
+    if (bookBack == self.book1back) {
+        [book1DeleteCover removeFromSuperview];
+        [UIView animateWithDuration:0.2 animations:^{
+            book1Checked.alpha = 0;
+        } completion:^(BOOL finished) {
+            [book1Checked removeFromSuperview];
+        }];
+    }else if (bookBack == self.book2back) {
+        [book2DeleteCover removeFromSuperview];
+        [UIView animateWithDuration:0.2 animations:^{
+            book2Checked.alpha = 0;
+        } completion:^(BOOL finished) {
+            [book2Checked removeFromSuperview];
+        }];
+    }
+}
+
 
 - (void) book1Clicked {
     [[self delegate] bookClicked:self.book1Name.text cell:self];

@@ -37,5 +37,7 @@
 
 
 - (void) setupCell:(NSDictionary *)view book2:(NSDictionary *)book2 ;
+- (void) setToDeleteMode :(UIView*)bookBack ;
+- (void) quitFromDeleteMode :(UIView*)bookBack ;
 
 @end

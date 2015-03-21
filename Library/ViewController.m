@@ -249,6 +249,7 @@
 
 - (IBAction)dismissToMain:(UIStoryboardSegue *)segue {
     [self updateWithLocaData];
+    
 }
 
 - (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier{

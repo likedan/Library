@@ -38,25 +38,45 @@
 
 - (IBAction)addClicked :(id)sender {
     
+    Boolean hasError = false;
+    
     if ([author.text isEqualToString:@""]) {
-        [self addWarningAnimation:author];
+        [self addWarningAnimation:author :@"Field Empty!"];
+        hasError = true;
     }
     
     if ([bookName.text isEqualToString:@""]) {
-        [self addWarningAnimation:bookName];
+        [self addWarningAnimation:bookName :@"Field Empty!"];
+        hasError = true;
+    } else if ([[[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"books"]] mutableCopy] objectForKey: bookName.text] != nil) {
+        
+        //dupiclated name
+        [self addWarningAnimation:bookName :@"invalid name"];
+        hasError = true;
     }
     
     if ([publisher.text isEqualToString:@""]) {
-        [self addWarningAnimation:publisher];
+        [self addWarningAnimation:publisher :@"Field Empty!"];
+        hasError = true;
     }
     
     if ([categories.text isEqualToString:@""]) {
-        [self addWarningAnimation:categories];
+        [self addWarningAnimation:categories :@"Field Empty!"];
+        hasError = true;
     }
     
-    if (!([categories.text isEqualToString:@""] || [author.text isEqualToString:@""] || [bookName.text isEqualToString:@""] || [publisher.text isEqualToString:@""])) {
+    if (!hasError) {
         
-        InternetConnection *connection = [[InternetConnection alloc] init:@"/books/" parameters:[NSDictionary dictionaryWithObjectsAndKeys:bookName.text, @"title", author.text, @"author", categories.text, @"categories", publisher.text, @"publisher",nil]];
+        //add new book to local
+        NSMutableDictionary *localLibrary = [[NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"books"]] mutableCopy];
+        
+        NSDictionary *bookInfo = [NSDictionary dictionaryWithObjectsAndKeys:bookName.text, @"title", author.text, @"author", categories.text, @"categories", publisher.text, @"publisher",nil];
+        [localLibrary setObject:bookInfo forKey:bookName.text];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:localLibrary] forKey:@"books"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        InternetConnection *connection = [[InternetConnection alloc] init:@"/books/" parameters:bookInfo];
         connection.delegate = self;
         [connection sendPostRequest];
     }
@@ -64,13 +84,13 @@
 }
 
 // display warning
-- (void) addWarningAnimation :(UIView*)view {
+- (void) addWarningAnimation :(UIView*)view :(NSString*)message {
     
     UILabel * warning = [[UILabel alloc] initWithFrame:view.bounds];
     warning.textColor = [UIColor darkGrayColor];
     warning.backgroundColor = [UIColor whiteColor];
     warning.font = [UIFont fontWithName:@"Courier-Oblique" size:25];
-    warning.text = @"Field Empty!";
+    warning.text = message;
     warning.textAlignment = NSTextAlignmentCenter;
     warning.alpha = 0;
     [view addSubview:warning];

@@ -47,7 +47,7 @@
     if (book2 == nil) {
         self.book2back.alpha = 0;
     }else{
-        
+        self.book2back.alpha = 1;
         reco = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(book2Clicked)];
         [self.book2cover addGestureRecognizer:reco];
         

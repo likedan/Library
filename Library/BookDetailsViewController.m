@@ -180,6 +180,16 @@
     return true;
 }
 
+- (IBAction)shareDialogue:(UIBarButtonItem *)sender
+{
+    
+    NSArray *objectsToShare = @[bookName.text, author.text];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

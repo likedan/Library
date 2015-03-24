@@ -41,7 +41,7 @@
     
     self.bookTable.estimatedRowHeight = self.view.bounds.size.width / 1.4;
     booksToDelete = [[NSMutableDictionary alloc] init];
-    [self requestBookList];
+    [self  getBookList];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -122,7 +122,7 @@
 }
 
 // request the booklist from the server
-- (void)requestBookList {
+- (void) getBookList {
     
     [self.view bringSubviewToFront: loadingView];
     [self.view bringSubviewToFront: navigationBar];
@@ -132,7 +132,7 @@
     if ([connection connected]) {
         [connection sendGetRequest];
     }else{
-        NSLog(@"no internet");
+        [self updateWithLocaData];
         //handle no internet situation
     }
 
@@ -261,14 +261,7 @@
 
 - (IBAction)dismissToMain:(UIStoryboardSegue *)segue {
     
-    InternetConnection *connection = [[InternetConnection alloc] init:@"/books" parameters:nil];
-    connection.delegate = self;
-    if ([connection connected]) {
-        [connection sendGetRequest];
-    }else{
-        [self updateWithLocaData];
-        //handle no internet situation
-    }
+    [self  getBookList];
     
 }
 

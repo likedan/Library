@@ -11,6 +11,7 @@
 		420EBA271ABCD45500DDC036 /* AddBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420EBA261ABCD45500DDC036 /* AddBookViewController.m */; };
 		423BE0C51ABB657400133302 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 423BE0C41ABB657400133302 /* plus.png */; };
 		423BE0C81ABB7A1A00133302 /* UIViewFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 423BE0C71ABB7A1A00133302 /* UIViewFunctions.m */; };
+		425822D01AC200E1002B3E81 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 425822CF1AC200E1002B3E81 /* Reachability.m */; };
 		42C5BDA21ABBA5FE00284266 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C5BDA11ABBA5FE00284266 /* CustomSegue.m */; };
 		42C5BDA61ABBA98600284266 /* backArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C5BDA51ABBA98600284266 /* backArrow.png */; };
 		42C5BDAA1ABBB05400284266 /* BookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C5BDA91ABBB05400284266 /* BookDetailsViewController.m */; };
@@ -46,6 +47,8 @@
 		423BE0C41ABB657400133302 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		423BE0C61ABB7A1A00133302 /* UIViewFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewFunctions.h; sourceTree = "<group>"; };
 		423BE0C71ABB7A1A00133302 /* UIViewFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewFunctions.m; sourceTree = "<group>"; };
+		425822CE1AC200E1002B3E81 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		425822CF1AC200E1002B3E81 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		42C5BDA01ABBA5FE00284266 /* CustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegue.h; sourceTree = "<group>"; };
 		42C5BDA11ABBA5FE00284266 /* CustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegue.m; sourceTree = "<group>"; };
 		42C5BDA51ABBA98600284266 /* backArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow.png; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				42D04C131ABA7C1200A22B28 /* InternetConnection.m */,
 				423BE0C61ABB7A1A00133302 /* UIViewFunctions.h */,
 				423BE0C71ABB7A1A00133302 /* UIViewFunctions.m */,
+				425822CE1AC200E1002B3E81 /* Reachability.h */,
+				425822CF1AC200E1002B3E81 /* Reachability.m */,
 				42FE5DCC1ABA5C84005B6673 /* Main.storyboard */,
 				42FE5DCF1ABA5C84005B6673 /* Images.xcassets */,
 				42FE5DD11ABA5C84005B6673 /* LaunchScreen.xib */,
@@ -359,6 +364,7 @@
 				42D04C141ABA7C1200A22B28 /* InternetConnection.m in Sources */,
 				42C5BDAA1ABBB05400284266 /* BookDetailsViewController.m in Sources */,
 				42D04C0B1ABA66C200A22B28 /* BookshelfViewCell.m in Sources */,
+				425822D01AC200E1002B3E81 /* Reachability.m in Sources */,
 				420EBA271ABCD45500DDC036 /* AddBookViewController.m in Sources */,
 				42FE5DC51ABA5C84005B6673 /* AppDelegate.m in Sources */,
 				423BE0C81ABB7A1A00133302 /* UIViewFunctions.m in Sources */,

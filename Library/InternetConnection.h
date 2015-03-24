@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "Reachability.h"
 
 @protocol InternetConnectionDelegate <NSObject>
 
@@ -36,5 +37,6 @@ id <InternetConnectionDelegate> delegate;
 - (void) sendPostRequest;
 - (void) sendPutRequest;
 - (void) sendDeleteRequest;
+- (BOOL) connected;
 
 @end

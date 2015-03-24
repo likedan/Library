@@ -78,7 +78,11 @@
         
         InternetConnection *connection = [[InternetConnection alloc] init:@"/books/" parameters:bookInfo];
         connection.delegate = self;
-        [connection sendPostRequest];
+        if ([connection connected]) {
+            [connection sendPostRequest];
+        }else{
+            NSLog(@"no internet");
+        }
     }
     
 }

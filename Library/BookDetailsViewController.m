@@ -86,7 +86,11 @@
         //send result
         InternetConnection *connection = [[InternetConnection alloc] init:[bookInfo objectForKey:@"url"] parameters:[NSDictionary dictionaryWithObject:nameInput.text forKey:@"lastCheckedOutBy"]];
         connection.delegate = self;
-        [connection sendPutRequest];
+        if ([connection connected]) {
+            [connection sendPutRequest];
+        }else{
+            NSLog(@"no internet");
+        }
     }
 }
 

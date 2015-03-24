@@ -21,8 +21,21 @@
     if (self) {
         self.suffix = suffix;
         self.parameters = parameters;
+
     }
     return self;
+}
+
+- (BOOL)connected {
+    
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        return false;
+    } else {
+        return true;
+    }
+    
 }
 
 - (void) sendGetRequest {

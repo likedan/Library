@@ -83,8 +83,14 @@
             bookname = cell.book2Name.text;
         }
         InternetConnection *connection = [[InternetConnection alloc] init:[[bookDict objectForKey:bookname] objectForKey:@"url"] parameters:nil];
-        [connection sendDeleteRequest];
-        [bookDict removeObjectForKey:bookname];
+        
+        if ([connection connected]) {
+            [connection sendDeleteRequest];
+            [bookDict removeObjectForKey:bookname];
+        }else{
+            NSLog(@"no internet");
+            //handle no internet situation
+        }
     }
     
     [self storeDataToLocal:bookDict];
@@ -123,7 +129,13 @@
 
     InternetConnection *connection = [[InternetConnection alloc] init:@"/books" parameters:nil];
     connection.delegate = self;
-    [connection sendGetRequest];
+    if ([connection connected]) {
+        [connection sendGetRequest];
+    }else{
+        NSLog(@"no internet");
+        //handle no internet situation
+    }
+
 }
 
 - (void)gotResultFromServer:(NSString *)suffix result:(id)result {
@@ -248,7 +260,15 @@
 }
 
 - (IBAction)dismissToMain:(UIStoryboardSegue *)segue {
-    [self updateWithLocaData];
+    
+    InternetConnection *connection = [[InternetConnection alloc] init:@"/books" parameters:nil];
+    connection.delegate = self;
+    if ([connection connected]) {
+        [connection sendGetRequest];
+    }else{
+        [self updateWithLocaData];
+        //handle no internet situation
+    }
     
 }
 
